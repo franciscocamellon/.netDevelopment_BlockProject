@@ -39,8 +39,6 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 
 <p><br></p>
 <p><br></p>
-<p><br></p>
-<h3 align="center"></h3>
 
 ## 1 - [DEV Network](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#dev-network)
 
@@ -63,21 +61,17 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 
    
 
+
 <p><br></p>
 <p><br></p>
-<h2 align="center" padding-top="200"> </h2>
-<h4 align="center" padding-top="200"> </h4>
-<p><br></p>
-<p><br></p>
-<p><br></p>
-<h3 align="center"></h3>
 <p><br></p>
 <p><br></p>
 
 ---
 
-<p align="center"><br> </p>
-  
+<p><br></p>
+<p><br></p>
+<p><br></p>
 <p><br></p>
 <p><br></p>
 <p><br></p>
