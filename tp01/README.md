@@ -13,7 +13,7 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 <p><br></p>
 <p><br></p>
 <p><br></p>
-<h2 align="center" padding-top="200"> Desenvolvimento .NET</h2>
+<h3 align="center" padding-top="200"> Desenvolvimento .NET</h3>
 <h4 align="center" padding-top="200"> TP01 - Projeto de Bloco</h4>
 <p><br></p>
 <p><br></p>
@@ -34,7 +34,9 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 
 
 
-<h1 align="center"> SUMÁRIO</h1>
+# <p align="center">SUMÁRIO</p>
+
+
 <p><br></p>
 <p><br></p>
 <p><br></p>
