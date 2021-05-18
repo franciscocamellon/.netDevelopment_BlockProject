@@ -2,9 +2,9 @@
 
 ---
 
-<h2 align="center"> INSTITUTO INFNET <br>
+<h1 align="center"> INSTITUTO INFNET <br>
 ESCOLA SUPERIOR DA TECNOLOGIA DA INFORMAÇÃO<br>
-CURSO DE ENGENHARIA DE SOFTWARES</h2>
+CURSO DE ENGENHARIA DE SOFTWARES</h1>
 <p><br></p>
 <p><br></p>
 <p><br></p>
@@ -13,12 +13,12 @@ CURSO DE ENGENHARIA DE SOFTWARES</h2>
 <p><br></p>
 <p><br></p>
 <p><br></p>
-<h4 align="center" padding-top="200"> Desenvolvimento .NET</h4>
+<h2 align="center" padding-top="200"> Desenvolvimento .NET</h2>
 <h4 align="center" padding-top="200"> TP01 - Projeto de Bloco</h4>
 <p><br></p>
 <p><br></p>
 <p><br></p>
-<h4 align="center">Prof. Júlio César Guimarães</h4>
+<h3 align="center">Prof. Júlio César Guimarães</h3>
 <p><br></p>
 <p><br></p>
 
@@ -30,8 +30,58 @@ CURSO DE ENGENHARIA DE SOFTWARES</h2>
 <p><br></p>
 <p><br></p>
 
+<p><br></p>
 
-# DEV Network
+
+
+<h1 align="center"> SUMÁRIO</h1>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<h3 align="center"></h3>
+
+## 1 - [DEV Network](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#dev-network)
+
+  ### 1.1 - [Propósito](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#11--prop%C3%B3sito)
+
+  ### 1.2 - [Escopo do projeto](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#12--escopo-do-projeto)
+
+  ### 1.3 - [Requisitos de usuário](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#13--requisitos-de-usu%C3%A1rio)
+
+-  [R01 - Criar perfil na rede social - Dev/Empresa](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#r01---criar-perfil-na-rede-social---devempresa)
+-  [R02 - Organizar e gerenciar seu portifólio - Dev](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#r02---organizar-e-gerenciar-seu-portif%C3%B3lio---dev)
+-  [R03 - Criar currículo atrelado ao portifólio - Dev](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#r03---criar-curr%C3%ADculo-atrelado-ao-portif%C3%B3lio---dev)
+-  [R04 - Ser visto por empresas - Dev](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#r04---ser-visto-por-empresas---dev)
+-  [R05 - Receber e enviar mensagens para as empresas - Dev](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#r05---receber-e-enviar-mensagens-para-as-empresas---dev)
+-  [R06 - Compartilha currículo para as empresas - Dev](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#r06---compartilha-curr%C3%ADculo-para-as-empresas---dev)
+-  [R07 - Enviar mensagens para outros devs - Dev](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#r07---enviar-mensagens-para-outros-devs---dev)
+-  [R08 - Criar e deletar demanda por profissional - Empresa](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#r08---criar-e-deletar-demanda-por-profissional---empresa)
+-  [R09 - Criar processos seletivos - Empresa](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#r09---criar-processos-seletivos---empresa)
+-  [R10 - Contatar o desenvolvedor via conferencia web - Empresa](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#r10---contatar-o-desenvolvedor-via-conferencia-web---empresa)
+
+   
+
+<p><br></p>
+<p><br></p>
+<h2 align="center" padding-top="200"> </h2>
+<h4 align="center" padding-top="200"> </h4>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<h3 align="center"></h3>
+<p><br></p>
+<p><br></p>
+
+---
+
+<p align="center"><br> </p>
+  
+<p><br></p>
+<p><br></p>
+<p><br></p>
+
+# 1 - DEV Network
+
 ## 1.1	- Propósito.
 
 Este documento tem por objetivo especificar as funcionalidades necessárias para o desenvolvimento do produto. Fornecer as informações para realizar estimativas. Definir as restrições sobre uso de tecnologias e ferramentas. Fornecer os detalhes necessários para o desenvolvimento de funcionalidades e criação de diagramas como documento. Assegurar que as funcionalidades aqui descritas farão parte do entregável ao final do projeto. Assegurar a passagem de conhecimento de maneira objetiva e descritiva sobre as necessidades do produto.
