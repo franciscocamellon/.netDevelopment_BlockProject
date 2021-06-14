@@ -35,7 +35,7 @@
 | Pré-condição              | O usuário deve possuir um cadastro do tipo DEV ou EMPRESA|
 | Fluxo Básico              | O usuário acessa o sistema<br>O usuário clica em "Logar"<br>O usuário seleciona fazer login pelo endereço de email<br>O usuário insere o seu endereço de email e sua senha<br>O sistema autentica os dados fornecidos<br>O sistema retorna para a página do perfil|
 | Pós   condição            | Após a autenticação o sistema libera a navegação na rede social e habilita a edição do perfil e criação de posts|
-| Fluxo alternativo         | Os Atores digitam um email ou senha que não conferem. Quando isso ocorrer, a mensagem “O {email} não existe em nosso banco de dados.” deverá ser exibida.<br>O usuário se cadastra utilizando sua conta do Facebook<br> O usuário se cadastra utilizando sua conta do Google+ |
+| Fluxo alternativo         | O usuário digita um email ou senha que não conferem. Quando isso ocorrer, a mensagem “O {email} não existe em nosso banco de dados.” deverá ser exibida.<br>O usuário se cadastra utilizando sua conta do Facebook<br> O usuário se cadastra utilizando sua conta do Google+ |
 | Dados                     | Email: email válido<br>Senha: alfanumérica, mínimo 12 caracteres|
 | Requisitos   relacionados | RS1 |  
 
@@ -71,8 +71,8 @@
 | Descrição | Criação de uma oportunidade de trabalho que será publicada no site|
 | Ator | Usuário logado|
 | Pré-condição              | O usuário deve estar logado |
-| Fluxo Básico              | O usuário acessa o sistema<br>O usuário clica em "Adicionar nova oportunidade"<br>O usuário insere uma descrição para a oportunidade<br>O sistema oferece as opções de nova oportunidade para o usuário<br>O usuário seleciona a tecnologia necessária à candidatura<br>O sistema exibe a janela de envio de oportunidade<br>O usuário seleciona "Publicar oportunidade"<br>O sistema carrega a nova oportunidade |
-| Pós   condição            | A oportunidade de trabalho é publicada e deve ser exibida na categoria Recentes. Um email com aviso da oportunidade é enviado aos perfis DEV com correlação maior que 90% com os parametros da demanda.|
-| Fluxo alternativo         | O Ator tenta criar uma demanda sem que o status contratando esteja ativado. Quando isso ocorrer, a mensagem “Status contratando está {hiringStatus}. Não é possível criar uma demanda.”<br>Usuário submete a publicação sem preencher a descrição<br> Usuário não seleciona uma categoria|
-| Dados                     | Descrição: descrição da vaga, máximo de 500 caracteres<br>Tecnologia: texto, máximo 100 caracteres|
+| Fluxo Básico              | O usuário acessa o sistema<br>O usuário ativa o status "Contratando"<br>O usuário clica em "Adicionar nova oportunidade"<br>O usuário insere uma descrição para a oportunidade<br>O sistema oferece as opções de nova oportunidade para o usuário<br>O usuário seleciona a tecnologia necessária à candidatura<br>O sistema exibe a janela de envio de oportunidade<br>O usuário seleciona "Publicar oportunidade"<br>O sistema carrega a nova oportunidade |
+| Pós   condição            | A oportunidade de trabalho é postada e deve ser exibida na categoria Recentes. Um email com aviso da oportunidade é enviado aos perfis DEV com correlação maior que 90% com os parametros da demanda.|
+| Fluxo alternativo         | O usuário tenta criar uma demanda sem que o status contratando esteja ativado. Quando isso ocorrer, a mensagem “Status contratando está {hiringStatus}. Não é possível criar uma demanda.”<br>O Usuário submete a publicação sem preencher a descrição<br> O Usuário não seleciona uma categoria|
+| Dados                     | Descrição: descrição da oportunidade de trabalho, máximo de 500 caracteres<br>Tipo de vaga: texto, máximo 50 caracteres<br>Tecnologia: texto, máximo 100 caracteres<br>Nível de experiência: texto, máximo 50 caracteres|
 | Requisitos   relacionados | RS1 e RS2 |    
