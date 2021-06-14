@@ -1,6 +1,6 @@
 
 <style>
-* {
+{
   box-sizing: border-box;
 }
 .column {
@@ -22,6 +22,7 @@
   display: table;
   clear: both;
 }
+
 </style>
 <div class="row">
   <div class="column left" style="align:left;">
@@ -100,12 +101,13 @@
 | Requisitos   relacionados | RF2, RF3 (são exemplos aqui)
 
 
-</style>
-<div class="row">
-  <div class="column left" style="align:left;">
-    <a href="https://github.com/franciscocamellon/.netDevelopment_BlockProject/wiki">1 - Home</a>
-  </div>
-  <div class="column right" style="align:right;">
-    <a href="https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#13--requisitos-de-usu%C3%A1rio">3 - Requisitos de usuário</a>
-  </div>
-</div>
+<table>
+  <tr style="text-align:left;width:50%;">
+   <td>
+      <a href="https://github.com/franciscocamellon/.netDevelopment_BlockProject/wiki">1 - Home</a>
+   </td>
+   <td style="text-align:right;width:50%;">
+      <a href="https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp01#13--requisitos-de-usu%C3%A1rio">3 - Requisitos de usuário</a>
+   </td>
+  </tr>
+</table>
