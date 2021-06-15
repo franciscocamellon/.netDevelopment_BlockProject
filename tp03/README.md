@@ -38,7 +38,7 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 
 
 ### [Home](https://github.com/franciscocamellon/.netDevelopment_BlockProject/wiki)
-### [Introdução](hhttps://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp03/tp03#1---introdu%C3%A7%C3%A3o)
+### [Introdução](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp03/tp03#1---introdu%C3%A7%C3%A3o)
 
 * [Propósito](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp03/tp03#11---prop%C3%B3sito)
 * [Escopo do projeto](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp03/tp03#12---escopo-do-projeto)
@@ -70,28 +70,27 @@ Criar uma rede social para desenvolvedores de aplicativos mobile. O objetivo é 
 * O sistema deve permitir a troca de mensagens entre os perfis, webconferências e a criação de posts categorizados por assunto. 
 # 3 - Requisitos de Usuário e de Sistema
 ## 3.1 - Requisitos de Usuário
-*  ### R01 - Criar perfil na rede social - Dev/Empresa  
-
+*  ### R01 - Criar perfil na rede social  
    O perfil é a parte primária dessa rede social. Aqui serão requisitadas informações cadastrais de contato e de tipo de usuário (Dev ou Empresa).  
-*  ### R02 - Organizar e gerenciar seu portifólio - Dev
+* ### R02 - Autenticação na rede social
+    A autenticação no sistema deve prover segurança e interoperabilidade com outros meio de autenticação como Facebook e Google+.
+*  ### R03 - Gerenciar portifólio
    O portifólio é a parte fundamental desta rede social. É através dele que as empresas farão suas buscas pela rede social. Deve conter informações relevantes como projetos realizados, links para Github, Fiverr, Upwork, entre outros.
-*  ### R03 - Criar currículo atrelado ao portifólio - Dev
-   O currículo será um documento privado gerado automaticamente pelo sistema com base em seus dados cadastrais e seu portifólio. É o documento formal mais detalhado que será enviado à empresa interessada.
-*  ### R04 - Ser visto por empresas - Dev
+*  ### R04 - Pesquisar por oportunidade de trabalho
    O usuário deverá ter seu perfil/portifólio exibido às empresas como resultado da busca das mesmas no mecanismo de busca do sistema.
-
-*  ### R05 - Receber e enviar mensagens para as empresas - Dev
-   O usuário deverá ser capaz de receber e enviar mensagens das empresas interessadas.
-*  ### R06 - Compartilha currículo para as empresas - Dev
+*  ### R05 - Criar currículo atrelado ao portifólio
+   O currículo será um documento privado gerado automaticamente pelo sistema com base em seus dados cadastrais e seu portifólio. É o documento formal mais detalhado que será enviado à empresa interessada.
+*  ### R06 - Criar posts categorizados
+   O usuário deverá ser capaz de criar e publicar posts em diferentes categorias.
+*  ### R07 - Compartilha currículo para as empresas
    O usuário deverá ser capaz de compartilhar seu currículo com as empresas interessadas.
-*  ### R07 - Enviar mensagens para outros devs - Dev
-   O usuário deverá ser capaz de receber e enviar mensagens para outros desenvolvedores.
-*  ### R08 - Criar e deletar demanda por profissional - Empresa 
+*  ### R08 - Gerenciar oportunidades de trabalho 
    A empresa deverá criar e deletar oportunidades de emprego dentro do sistema.
-*  ### R09 - Criar processos seletivos - Empresa
+*  ### R09 - Criar processos seletivos
    A Empresa deverá ser capaz de criar e organizar processos de entrevistas pelo sistema.
-*  ###	R10 - Contatar o desenvolvedor via conferencia web - Empresa.
-   A Empresa deverá ser capaz de contatar o Dev selecionado para entrevista através do sistema. 
+*  ###	R10 - Contatar o desenvolvedor via web conferencia
+   A Empresa deverá ser capaz de contatar o Dev selecionado para entrevista através do sistema.  
+
 ## 3.2 - Requisitos de Sistema
 ## UC01 - Criar perfil na rede social
 
