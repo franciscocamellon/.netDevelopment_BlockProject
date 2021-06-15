@@ -121,9 +121,9 @@ O usuário deve estar logado em uma conta DEV ou EMPRESA.
 ### Pós   condição:
 Após a configuração de conta, a pagina é recarregada com as novas informações.
 ### Requisitos   relacionados:
-RS1 e RS2.
+UC01 e UC02.
 
-## RS4 - Pesquisar por oportunidade de trabalho
+## UC04 - Pesquisar por oportunidade de trabalho
 
 ### Descrição: 
 Buscar uma oportunidade de trabalho por meio de uma palavra chave.
@@ -147,9 +147,9 @@ Possuir acesso ao site DEV Network.
 ### Pós   condição:
 O sistema retorna as oportunidades de trabalho relacionadas a(s) palavra(s) buscadas. Somente o Usuário cadastrado poderá ver os detalhes das oportunidades de trabalho
 ### Requisitos   relacionados:
-RS1, RS2 e RS3  
+UC01, UC02 e UC03  
 
-## RS8 - Gerenciar oportunidades de trabalho 
+## UC08 - Gerenciar oportunidades de trabalho 
 
 ### Descrição:
 Criação de uma oportunidade de trabalho que será publicada no site.
@@ -182,4 +182,4 @@ O usuário deve estar logado.
 ### Pós   condição:
 A oportunidade de trabalho é publicada e deve ser exibida na categoria Recentes. Um email com aviso da oportunidade é enviado aos perfis DEV com correlação maior que 90% com os parametros da demanda.
 ### Requisitos   relacionados:
-RS1 e RS2.
+UC01 e UC02.
