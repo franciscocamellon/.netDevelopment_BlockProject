@@ -41,15 +41,15 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 
 
 ### [Home](https://github.com/franciscocamellon/.netDevelopment_BlockProject/wiki)
-### [Requisitos de sistema - Casos de Uso](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp02#requisitos-de-sistema---usos-de-caso)
+### [Requisitos de sistema - Casos de Uso](hhttps://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp02/tp02#requisitos-de-sistema---casos-de-uso-1)
 
   
 
--  [UC01 - Criar perfil na rede social](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp02#uc01---criar-perfil-na-rede-social)
--  [UC02 - Autenticação na rede social](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp02#uc02---autentica%C3%A7%C3%A3o-na-rede-social)
--  [UC03 - Gerenciar portifólio](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp02#uc03---gerenciar-portif%C3%B3lio)
--  [UC04 - Pesquisar por oportunidade de trabalho](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp02#uc04---pesquisar-por-oportunidade-de-trabalho)
--  [UC08 - Gerenciar oportunidades de trabalho](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp02#uc08---gerenciar-oportunidades-de-trabalho)
+-  [UC01 - Criar perfil na rede social](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp02/tp02#uc01---criar-perfil-na-rede-social)
+-  [UC02 - Autenticação na rede social](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp02/tp02#uc02---autentica%C3%A7%C3%A3o-na-rede-social)
+-  [UC03 - Gerenciar portifólio](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp02/tp02#uc03---gerenciar-portif%C3%B3lio)
+-  [UC04 - Pesquisar por oportunidade de trabalho](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp02/tp02#uc04---pesquisar-por-oportunidade-de-trabalho)
+-  [UC08 - Gerenciar oportunidades de trabalho](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp02/tp02#uc08---gerenciar-oportunidades-de-trabalho)
 
 <p><br></p>
 
