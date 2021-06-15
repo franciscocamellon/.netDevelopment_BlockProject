@@ -37,11 +37,11 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 
 
 
-# <p align="center">SUMÁRIO</p>
+## <p align="center">SUMÁRIO</p>
 
 
-## [Home](https://github.com/franciscocamellon/.netDevelopment_BlockProject/wiki)
-## [Requisitos de sistema - Casos de Uso](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp02#requisitos-de-sistema---usos-de-caso)
+### [Home](https://github.com/franciscocamellon/.netDevelopment_BlockProject/wiki)
+### [Requisitos de sistema - Casos de Uso](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/master/tp02#requisitos-de-sistema---usos-de-caso)
 
   
 
