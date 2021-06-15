@@ -57,7 +57,7 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 
 <p><br></p>
 
-## Requisitos de sistema - Usos de Caso  
+## Requisitos de sistema - Casos de Uso  
 
 ## UC01 - Criar perfil na rede social
 
