@@ -71,7 +71,7 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 # 3 - Requisitos de Usuário e de Sistema
 ## 3.1 - Requisitos de Usuário  
 
-| Requisito | Descrição |
+| Requisito de Usuário | Descrição |
 |:----------|:-----------|
 |R01 - Criar perfil na rede social|O perfil é a parte primária dessa rede social. Aqui serão requisitadas informações cadastrais de contato e de tipo de usuário (Dev ou Empresa).|
 |R02 - Autenticação na rede social|A autenticação no sistema deve prover segurança e interoperabilidade com outros meio de autenticação como Facebook e Google+.|
