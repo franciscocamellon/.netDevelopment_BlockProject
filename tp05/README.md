@@ -55,13 +55,13 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 
 <p><br></p>
 
-# 1 - Introdução  
+# 1. Introdução  
+   ##  1.1. Propósito
+<p style="margin-left: 5%; text-indent: 10%">Este documento tem por objetivo especificar as funcionalidades necessárias para o desenvolvimento do produto. Fornecer as informações para realizar estimativas. Definir as restrições sobre uso de tecnologias e ferramentas. Fornecer os detalhes necessários para o desenvolvimento de funcionalidades e criação de diagramas como documento. Assegurar que as funcionalidades aqui descritas farão parte do entregável ao final do projeto. Assegurar a passagem de conhecimento de maneira objetiva e descritiva sobre as necessidades do produto.</p>
 
-## 1.1 - Propósito
-Este documento tem por objetivo especificar as funcionalidades necessárias para o desenvolvimento do produto. Fornecer as informações para realizar estimativas. Definir as restrições sobre uso de tecnologias e ferramentas. Fornecer os detalhes necessários para o desenvolvimento de funcionalidades e criação de diagramas como documento. Assegurar que as funcionalidades aqui descritas farão parte do entregável ao final do projeto. Assegurar a passagem de conhecimento de maneira objetiva e descritiva sobre as necessidades do produto.
+## 1.2 - Escopo do projeto  
 
-## 1.2 - Escopo do projeto
-Criar uma rede social para desenvolvedores de aplicativos mobile. O objetivo é oferecer um local unificado, onde os desenvolvedores poderão expor seus trabalhos em um portifólio pessoal onde empresas interessadas poderão buscar os profissionais utilizando-se de alguns filtros. Com esta rede social, os desenvolvedores também poderão organizar fóruns de debate sobre tecnologia e podcasts. O objetivo inicial é conectar esses desenvolvedores às empresas que buscam profissionais, e, fazer da rede o espaço onde expõe seus portifólios.
+   Criar uma rede social para desenvolvedores de aplicativos mobile. O objetivo é oferecer um local unificado, onde os desenvolvedores poderão expor seus trabalhos em um portifólio pessoal onde empresas interessadas poderão buscar os profissionais utilizando-se de alguns filtros. Com esta rede social, os desenvolvedores também poderão organizar fóruns de debate sobre tecnologia e podcasts. O objetivo inicial é conectar esses desenvolvedores às empresas que buscam profissionais, e, fazer da rede o espaço onde expõe seus portifólios.
 # Descrição do sistema
 * O sistema deve permitir aos usuários que criem perfis do tipo DEV e EMPRESA;
     * Perfis do tipo DEV devem conter informações do desenvolvedor como por exemplo, tecnologias mais utilizadas, participação em projetos, aplicativos desenvolvidos, mídias de seus aplicativos e projetos, bem como se está aberto para trabalho.
