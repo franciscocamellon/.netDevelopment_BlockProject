@@ -61,7 +61,7 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 
 ## 1.2 - Escopo do projeto  
 
-    Criar uma rede social para desenvolvedores de aplicativos mobile. O objetivo é oferecer um local unificado, onde os desenvolvedores poderão expor seus trabalhos em um portifólio pessoal onde empresas interessadas poderão buscar os profissionais utilizando-se de alguns filtros. Com esta rede social, os desenvolvedores também poderão organizar fóruns de debate sobre tecnologia e podcasts. O objetivo inicial é conectar esses desenvolvedores às empresas que buscam profissionais, e, fazer da rede o espaço onde expõe seus portifólios.
+    Criar uma rede social para desenvolvedores de aplicativos mobile. O objetivo é oferecer um local unificado, onde os desenvolvedores poderão expor seus trabalhos em um portifólio pessoal onde empresas interessadas poderão buscar os profissionais utilizando-se de alguns filtros. Com esta rede social, os desenvolvedores também poderão organizar fóruns de debate sobre tecnologia e podcasts. O objetivo inicial é conectar esses desenvolvedores às empresas que buscam profissionais, e, fazer da rede o espaço onde expõe seus portifólios.  
 # Descrição do sistema
 * O sistema deve permitir aos usuários que criem perfis do tipo DEV e EMPRESA;
     * Perfis do tipo DEV devem conter informações do desenvolvedor como por exemplo, tecnologias mais utilizadas, participação em projetos, aplicativos desenvolvidos, mídias de seus aplicativos e projetos, bem como se está aberto para trabalho.
@@ -69,7 +69,20 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 * O sistema deve permitir aos usuários o gerenciamento total de seus perfis bem como sua deleção;
 * O sistema deve permitir a troca de mensagens entre os perfis, webconferências e a criação de posts categorizados por assunto. 
 # 3 - Requisitos de Usuário e de Sistema
-## 3.1 - Requisitos de Usuário
+## 3.1 - Requisitos de Usuário  
+
+| Requisito | Descrição |
+|:----------|:-----------|
+|R01 - Criar perfil na rede social|O perfil é a parte primária dessa rede social. Aqui serão requisitadas informações cadastrais de contato e de tipo de usuário (Dev ou Empresa).|
+|R02 - Autenticação na rede social|A autenticação no sistema deve prover segurança e interoperabilidade com outros meio de autenticação como Facebook e Google+.|
+|R03 - Gerenciar portifólio|O portifólio é a parte fundamental desta rede social. É através dele que as empresas farão suas buscas pela rede social. Deve conter informações relevantes como projetos realizados, links para Github, Fiverr, Upwork, entre outros.|
+|R04 - Pesquisar por oportunidade de trabalho|O usuário deverá ter seu perfil/portifólio exibido às empresas como resultado da busca das mesmas no mecanismo de busca do sistema.|
+|R05 - Criar currículo atrelado ao portifólio|O currículo será um documento privado gerado automaticamente pelo sistema com base em seus dados cadastrais e seu portifólio. É o documento formal mais detalhado que será enviado à empresa interessada.|
+|R06 - Criar posts categorizados|O usuário deverá ser capaz de criar e publicar posts em diferentes categorias.|
+|R07 - Compartilha currículo para as empresas|O usuário deverá ser capaz de compartilhar seu currículo com as empresas interessadas.|
+|R08 - Gerenciar oportunidades de trabalho|A empresa deverá criar e deletar oportunidades de emprego dentro do sistema.|
+|R09 - Criar processos seletivos|A Empresa deverá ser capaz de criar e organizar processos de entrevistas pelo sistema.|
+|R10 - Contatar o desenvolvedor via web conferencia|A Empresa deverá ser capaz de contatar o Dev selecionado para entrevista através do sistema.|  
 *  ### R01 - Criar perfil na rede social  
    O perfil é a parte primária dessa rede social. Aqui serão requisitadas informações cadastrais de contato e de tipo de usuário (Dev ou Empresa).  
 * ### R02 - Autenticação na rede social
