@@ -61,7 +61,7 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 
 ## 1.2 - Escopo do projeto  
 
-   Criar uma rede social para desenvolvedores de aplicativos mobile. O objetivo é oferecer um local unificado, onde os desenvolvedores poderão expor seus trabalhos em um portifólio pessoal onde empresas interessadas poderão buscar os profissionais utilizando-se de alguns filtros. Com esta rede social, os desenvolvedores também poderão organizar fóruns de debate sobre tecnologia e podcasts. O objetivo inicial é conectar esses desenvolvedores às empresas que buscam profissionais, e, fazer da rede o espaço onde expõe seus portifólios.
+    Criar uma rede social para desenvolvedores de aplicativos mobile. O objetivo é oferecer um local unificado, onde os desenvolvedores poderão expor seus trabalhos em um portifólio pessoal onde empresas interessadas poderão buscar os profissionais utilizando-se de alguns filtros. Com esta rede social, os desenvolvedores também poderão organizar fóruns de debate sobre tecnologia e podcasts. O objetivo inicial é conectar esses desenvolvedores às empresas que buscam profissionais, e, fazer da rede o espaço onde expõe seus portifólios.
 # Descrição do sistema
 * O sistema deve permitir aos usuários que criem perfis do tipo DEV e EMPRESA;
     * Perfis do tipo DEV devem conter informações do desenvolvedor como por exemplo, tecnologias mais utilizadas, participação em projetos, aplicativos desenvolvidos, mídias de seus aplicativos e projetos, bem como se está aberto para trabalho.
