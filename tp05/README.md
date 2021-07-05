@@ -55,11 +55,13 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 
 <p><br></p>
 
-# 1. Introdução  
-   ##  1.1. Propósito 
-<p style="margin-left: 5%; text-indent: 10%">Este documento tem por objetivo especificar as funcionalidades necessárias para o desenvolvimento do produto. Fornecer as informações para realizar estimativas. Definir as restrições sobre uso de tecnologias e ferramentas. Fornecer os detalhes necessários para o desenvolvimento de funcionalidades e criação de diagramas como documento. Assegurar que as funcionalidades aqui descritas farão parte do entregável ao final do projeto. Assegurar a passagem de conhecimento de maneira objetiva e descritiva sobre as necessidades do produto.</p>
+1.  # Introdução  
 
-## 1.2 - Escopo do projeto  
+1.  ## Propósito  
+
+    Este documento tem por objetivo especificar as funcionalidades necessárias para o desenvolvimento do produto. Fornecer as informações para realizar estimativas. Definir as restrições sobre uso de tecnologias e ferramentas. Fornecer os detalhes necessários para o desenvolvimento de funcionalidades e criação de diagramas como documento. Assegurar que as funcionalidades aqui descritas farão parte do entregável ao final do projeto. Assegurar a passagem de conhecimento de maneira objetiva e descritiva sobre as necessidades do produto.
+
+1.  ## Escopo do projeto  
 
     Criar uma rede social para desenvolvedores de aplicativos mobile. O objetivo é oferecer um local unificado, onde os desenvolvedores poderão expor seus trabalhos em um portifólio pessoal onde empresas interessadas poderão buscar os profissionais utilizando-se de alguns filtros. Com esta rede social, os desenvolvedores também poderão organizar fóruns de debate sobre tecnologia e podcasts. O objetivo inicial é conectar esses desenvolvedores às empresas que buscam profissionais, e, fazer da rede o espaço onde expõe seus portifólios.  
 # Descrição do sistema
@@ -71,7 +73,7 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 # 3 - Requisitos de Usuário e de Sistema
 ## 3.1 - Requisitos de Usuário  
 
-| Requisito de Usuário | Descrição |
+| Requisito de Usuário | Descrição do Requisito de Usuário |
 |:----------|:-----------|
 |R01 - Criar perfil na rede social|O perfil é a parte primária dessa rede social. Aqui serão requisitadas informações cadastrais de contato e de tipo de usuário (Dev ou Empresa).|
 |R02 - Autenticação na rede social|A autenticação no sistema deve prover segurança e interoperabilidade com outros meio de autenticação como Facebook e Google+.|
@@ -83,67 +85,86 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 |R08 - Gerenciar oportunidades de trabalho|A empresa deverá criar e deletar oportunidades de emprego dentro do sistema.|
 |R09 - Criar processos seletivos|A Empresa deverá ser capaz de criar e organizar processos de entrevistas pelo sistema.|
 |R10 - Contatar o desenvolvedor via web conferencia|A Empresa deverá ser capaz de contatar o Dev selecionado para entrevista através do sistema.|  
-*  ### R01 - Criar perfil na rede social  
-   O perfil é a parte primária dessa rede social. Aqui serão requisitadas informações cadastrais de contato e de tipo de usuário (Dev ou Empresa).  
-* ### R02 - Autenticação na rede social
-    A autenticação no sistema deve prover segurança e interoperabilidade com outros meio de autenticação como Facebook e Google+.
-*  ### R03 - Gerenciar portifólio
-   O portifólio é a parte fundamental desta rede social. É através dele que as empresas farão suas buscas pela rede social. Deve conter informações relevantes como projetos realizados, links para Github, Fiverr, Upwork, entre outros.
-*  ### R04 - Pesquisar por oportunidade de trabalho
-   O usuário deverá ter seu perfil/portifólio exibido às empresas como resultado da busca das mesmas no mecanismo de busca do sistema.
-*  ### R05 - Criar currículo atrelado ao portifólio
-   O currículo será um documento privado gerado automaticamente pelo sistema com base em seus dados cadastrais e seu portifólio. É o documento formal mais detalhado que será enviado à empresa interessada.
-*  ### R06 - Criar posts categorizados
-   O usuário deverá ser capaz de criar e publicar posts em diferentes categorias.
-*  ### R07 - Compartilha currículo para as empresas
-   O usuário deverá ser capaz de compartilhar seu currículo com as empresas interessadas.
-*  ### R08 - Gerenciar oportunidades de trabalho 
-   A empresa deverá criar e deletar oportunidades de emprego dentro do sistema.
-*  ### R09 - Criar processos seletivos
-   A Empresa deverá ser capaz de criar e organizar processos de entrevistas pelo sistema.
-*  ###	R10 - Contatar o desenvolvedor via web conferencia
-   A Empresa deverá ser capaz de contatar o Dev selecionado para entrevista através do sistema.  
 
-## 3.2 - Requisitos de Sistema
-## UC01 - Criar perfil na rede social
+## 3.2 - Requisitos de Sistema  
 
-### Descrição:
-Criar um perfil de usuário.
-### Ator:
-Usuário não cadastrado.
-### Pré-condição:
-O usuário deve possuir um endereço de email, conta no Facebook ou conta no Google+.
-### Fluxo Básico:
-* O usuário acessa o sistema.
+
+<style>
+	.demo {
+		border:1px solid;
+		border-collapse:collapse;
+		border-spacing:2px;
+		padding:5px;
+	}
+	.demo th {
+		border:1px solid;
+		padding:5px;
+		background:#F0F0F0;
+	}
+	.demo td {
+		border:1px solid;
+		text-align:left;
+		padding:5px;
+	}
+</style>
+<table class="demo">
+	<thead>
+    <tr>
+        <th class="tg-0pky" colspan="2">UC01 - Criar perfil na rede social</th>
+    </tr>
+    </thead>
+	<tbody>
+	<tr>
+		<td>Descrição</td>
+		<td>Criar um perfil de usuário.</td>
+	</tr>
+	<tr>
+		<td>Ator</td>
+		<td>Usuário não cadastrado.</td>
+	</tr>
+	<tr>
+		<td>Pré-condição:</td>
+		<td>O usuário deve possuir um endereço de email, conta no Facebook ou conta no Google+.</td>
+	</tr>
+	<tr>
+		<td>Fluxo Básico:</td>
+		<td>* O usuário acessa o sistema.
 * O usuário clica em "Cadastrar".
 * O usuário seleciona fazer cadastro pelo endereço de email.
 * O usuário define o tipo de perfil DEV ou EMPRESA.
 * O usuário insere o endereço de email que deseja cadastrar.
 * O Usuário preenche as informações necessárias para cada perfil DEV ou EMPRESA.
 * O Usuário executa a criação do perfil.
-* O sistema retorna para a página de perfil.
-
-### Fluxo alternativo:
-* O usuário se cadastra utilizando sua conta do Facebook.
+* O sistema retorna para a página de perfil.</td>
+	</tr>
+	<tr>
+		<td>Fluxo alternativo:</td>
+		<td>* O usuário se cadastra utilizando sua conta do Facebook.
     * O usuário clica em "Facebook".
     * O sistema se conecta com o site Facebook.
     * O sistema retorna para a página do perfil.
 * O usuário se cadastra utilizando sua conta do Google+.
     * O usuário clica em "Google+".
     * O sistema se conecta com o site Google+.
-    * O sistema retorna para a página do perfil.
-
-### Regras de validação:
-* O Usuário informa um e-mail que já está associado a algum perfil. Quando executarem a criação do perfil, a mensagem “Esse e-mail já está associado a um perfil” deverá ser exibida. 
+    * O sistema retorna para a página do perfil.</td>
+	</tr>
+	<tr>
+		<td>Regras de validação:</td>
+		<td>* O Usuário informa um e-mail que já está associado a algum perfil. Quando executarem a criação do perfil, a mensagem “Esse e-mail já está associado a um perfil” deverá ser exibida. 
 * Confirmação de e-mail e senha: o usuário deve fornecer os dados duas vezes para minimizar o risco de erro.
 * Validação de e-mail: verificar se o e-mail está em um formato válido, se o e-mail já consta na base de dados.
-* Validação de senha: verificar se a senha respeita os requisitos de segurança.
-### Pós   condição:
-Um perfil é criado com os dados informados pelo DEV ou EMPRESA. O usuário perde acesso as funcionalidade que so podem ser acessadas por usuários cadastrados.
-
-### Requisitos relacionados:  
-Nenhum.
-
+* Validação de senha: verificar se a senha respeita os requisitos de segurança.</td>
+	</tr>
+	<tr>
+		<td>&Pós   condição:</td>
+		<td>Um perfil é criado com os dados informados pelo DEV ou EMPRESA. O usuário perde acesso as funcionalidade que so podem ser acessadas por usuários cadastrados.</td>
+	</tr>
+	<tr>
+		<td>Requisitos relacionados:</td>
+		<td>Nenhum.</td>
+	</tr>
+	<tbody>
+</table>
 
 ## UC02 - Autenticação na rede social
 
