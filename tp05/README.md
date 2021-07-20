@@ -47,9 +47,9 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 * [Requisitos de usuário](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp03/tp03#31---requisitos-de-usu%C3%A1rio)
 * [Requisitos de sistema - Casos de Uso](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp03/tp03#32---requisitos-de-sistema)
 * [Matriz de rastreabilidade](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp03/tp03#33---matriz-de-rastreabilidade)
-### [Diagramas UML](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp03/tp03#3---requisitos-de-usu%C3%A1rio-e-de-sistema)
-* [Diagrama de Classe](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp03/tp03#31---requisitos-de-usu%C3%A1rio)
-* [Diagrama de Componente](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp03/tp03#32---requisitos-de-sistema)
+### [Diagramas UML](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagramas-uml-1)
+* [Diagrama de Classe](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagrama-de-classe)
+* [Diagrama de Componente](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagrama-de-componente)
 
 
 <p><br></p>
