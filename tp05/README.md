@@ -297,7 +297,7 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 # Diagramas UML
 
 * ## Diagrama de Classe  
-![Diagrama de classe UML](URL da imagem)
+![Diagrama de classe UML](https://github.com/franciscocamellon/.netDevelopment_BlockProject/blob/tp05/tp05/Diagrama%20de%20classe%20UML.svg)
 
 * ## Diagrama de Componente  
-![Diagrama de componente UML](URL da imagem)
+![Diagrama de componente UML](https://github.com/franciscocamellon/.netDevelopment_BlockProject/blob/tp05/tp05/Diagrama%20de%20classe%20UML.svg)
