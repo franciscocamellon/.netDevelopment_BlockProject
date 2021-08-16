@@ -7,10 +7,6 @@
     "mssql2": {
       "type": "mssql",
       "connectionId": "ConnectionStrings:IdentityDbContextConnection"
-    },
-    "mssql3": {
-      "type": "mssql",
-      "connectionId": "ConnectionStrings:ApplicationDbContext"
     }
   }
 }
