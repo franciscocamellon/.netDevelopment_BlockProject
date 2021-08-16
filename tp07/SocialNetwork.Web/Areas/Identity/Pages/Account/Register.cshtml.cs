@@ -60,11 +60,6 @@ namespace SocialNetwork.Web.Areas.Identity.Pages.Account
             [DataType(DataType.Text)]
             [Display(Name = "Last name")]
             public string LastName { get; set; }
-            
-            [Required]
-            [DataType(DataType.DateTime)]
-            [Display(Name = "Graduation date")]
-            public DateTime GraduationDate { get; set; }
 
             [Required]
             [EmailAddress]
@@ -100,7 +95,6 @@ namespace SocialNetwork.Web.Areas.Identity.Pages.Account
                     UserName = Input.UserName, 
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
-                    GraduationDate = Input.GraduationDate,
                     Email = Input.Email
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);

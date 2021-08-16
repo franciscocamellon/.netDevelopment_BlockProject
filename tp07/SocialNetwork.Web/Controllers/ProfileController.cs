@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SocialNetwork.Data;
@@ -7,22 +8,31 @@ using SocialNetwork.Domain.Entities;
 
 namespace SocialNetwork.Web.Controllers
 {
-    public class ProfilesController : Controller
+    public class ProfileController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
 
-        public ProfilesController(ApplicationDbContext context)
+        public ProfileController(ApplicationDbContext context,
+                                 UserManager<User> userManager,
+                                 SignInManager<User> signInManager)
         {
             _context = context;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
-        // GET: Profiles
+        // GET: Profile
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Profile.ToListAsync());
+            var userId = _userManager.GetUserId(User);
+            var profile = await _context.Profile.Where(x => x.UserId == userId).ToListAsync();
+
+            return View(profile);
         }
 
-        // GET: Profiles/Details/5
+        // GET: Profile/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -40,21 +50,24 @@ namespace SocialNetwork.Web.Controllers
             return View(profile);
         }
 
-        // GET: Profiles/Create
+        // GET: Profile/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Profiles/Create
+        // POST: Profile/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,UserId")] Profile profile)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,GraduationDate,City,State,PublishedApps,UserId")] Profile profile)
         {
             if (ModelState.IsValid)
             {
+                var userId = _userManager.GetUserId(User);
+                profile.UserId = userId;
+
                 _context.Add(profile);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -62,7 +75,7 @@ namespace SocialNetwork.Web.Controllers
             return View(profile);
         }
 
-        // GET: Profiles/Edit/5
+        // GET: Profile/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -78,12 +91,12 @@ namespace SocialNetwork.Web.Controllers
             return View(profile);
         }
 
-        // POST: Profiles/Edit/5
+        // POST: Profile/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,UserId")] Profile profile)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,GraduationDate,City,State,PublishedApps,UserId")] Profile profile)
         {
             if (id != profile.Id)
             {
@@ -113,7 +126,7 @@ namespace SocialNetwork.Web.Controllers
             return View(profile);
         }
 
-        // GET: Profiles/Delete/5
+        // GET: Profile/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,7 +144,7 @@ namespace SocialNetwork.Web.Controllers
             return View(profile);
         }
 
-        // POST: Profiles/Delete/5
+        // POST: Profile/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

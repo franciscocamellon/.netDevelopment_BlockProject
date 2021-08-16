@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -7,6 +8,7 @@ using SocialNetwork.Domain.Entities;
 
 namespace SocialNetwork.Web.Areas.Identity.Pages.Account.Manage
 {
+    [Authorize]
     public class PersonalDataModel : PageModel
     {
         private readonly UserManager<User> _userManager;

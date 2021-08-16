@@ -1,4 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using SocialNetwork.Domain.Entities;
 
 namespace SocialNetwork.Data
 {
@@ -9,7 +14,6 @@ namespace SocialNetwork.Data
         {
         }
 
-        public DbSet<SocialNetwork.Domain.Entities.Developer> Developer { get; set; }
         public DbSet<SocialNetwork.Domain.Entities.Profile> Profile { get; set; }
     }
 }

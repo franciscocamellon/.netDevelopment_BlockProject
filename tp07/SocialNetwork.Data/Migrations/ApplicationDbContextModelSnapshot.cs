@@ -19,14 +19,15 @@ namespace SocialNetwork.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.8")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SocialNetwork.Domain.Entities.Developer", b =>
+            modelBuilder.Entity("SocialNetwork.Domain.Entities.Profile", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("EmployedStatus")
-                        .HasColumnType("bit");
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
@@ -40,9 +41,15 @@ namespace SocialNetwork.Data.Migrations
                     b.Property<int>("PublishedApps")
                         .HasColumnType("int");
 
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Developer");
+                    b.ToTable("Profile");
                 });
 #pragma warning restore 612, 618
         }

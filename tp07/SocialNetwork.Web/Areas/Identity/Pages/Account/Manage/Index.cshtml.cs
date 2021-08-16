@@ -1,6 +1,6 @@
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -8,6 +8,7 @@ using SocialNetwork.Domain.Entities;
 
 namespace SocialNetwork.Web.Areas.Identity.Pages.Account.Manage
 {
+    [Authorize]
     public partial class IndexModel : PageModel
     {
         private readonly UserManager<User> _userManager;
@@ -21,7 +22,6 @@ namespace SocialNetwork.Web.Areas.Identity.Pages.Account.Manage
             _signInManager = signInManager;
         }
 
-        //public string Username { get; set; }
 
         [TempData]
         public string StatusMessage { get; set; }
@@ -46,11 +46,6 @@ namespace SocialNetwork.Web.Areas.Identity.Pages.Account.Manage
             [Display(Name = "Username")]
             public string UserName { get; set; }
 
-            [Required]
-            [DataType(DataType.DateTime)]
-            [Display(Name = "Graduation date")]
-            public DateTime GraduationDate { get; set; }
-
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
@@ -58,17 +53,13 @@ namespace SocialNetwork.Web.Areas.Identity.Pages.Account.Manage
 
         private async Task LoadAsync(User user)
         {
-            var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-
-            
 
             Input = new InputModel
             {
                 UserName = user.UserName,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
-                GraduationDate = user.GraduationDate,
                 PhoneNumber = phoneNumber
             };
         }
@@ -123,11 +114,6 @@ namespace SocialNetwork.Web.Areas.Identity.Pages.Account.Manage
             if (Input.LastName != user.LastName)
             {
                 user.LastName = Input.LastName;
-            }
-
-            if (Input.GraduationDate != user.GraduationDate)
-            {
-                user.GraduationDate = Input.GraduationDate;
             }
 
             await _userManager.UpdateAsync(user);
