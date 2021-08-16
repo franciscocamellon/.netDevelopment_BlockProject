@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SocialNetwork.Domain.Entities
+﻿namespace SocialNetwork.Domain.Entities
 {
     public class Profile
     {
