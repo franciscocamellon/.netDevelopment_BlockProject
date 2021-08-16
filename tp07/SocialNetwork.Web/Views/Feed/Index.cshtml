@@ -1,124 +1,132 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using SocialNetwork.Domain.Entities
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> _userManager;
+@{
     ViewData["Title"] = "Profile";
     ViewData["AppContentClass"] = "p-0";
+
+    System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+    var userApp = await _userManager.GetUserAsync(currentUser);
+    var firstName = userApp.FirstName;
+    var lastName = userApp.LastName;
+    var userName = userApp.UserName;
 }
 
 <!-- BEGIN profile -->
 <div class="profile">
-	<!-- BEGIN profile-header -->
-	<div class="profile-header">
-		<div class="profile-header-cover"></div>
-		
-		<div class="profile-header-content">
-			<div class="profile-header-img">
-				<img src="/img/user/profile.jpg" alt="" />
-			</div>
-			<ul class="profile-header-tab nav nav-tabs nav-tabs-v2">
-				<li class="nav-item">
-					<a href="#profile-post" class="nav-link active" data-bs-toggle="tab">
-						<div class="nav-field">Posts</div>
-						<div class="nav-value">382</div>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="#profile-followers" class="nav-link" data-bs-toggle="tab">
-						<div class="nav-field">Followers</div>
-						<div class="nav-value">1.3m</div>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="#profile-media" class="nav-link" data-bs-toggle="tab">
-						<div class="nav-field">Photos</div>
-						<div class="nav-value">1,397</div>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="#profile-media" class="nav-link" data-bs-toggle="tab">
-						<div class="nav-field">Videos</div>
-						<div class="nav-value">120</div>
-					</a>
-				</li>
-				<li class="nav-item">
-					<a href="#profile-followers" class="nav-link" data-bs-toggle="tab">
-						<div class="nav-field">Following</div>
-						<div class="nav-value">2,592</div>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<!-- END profile-header -->
-	
-	<!-- BEGIN profile-container -->
-	<div class="profile-container">
-		
+    <!-- BEGIN profile-header -->
+    <div class="profile-header">
+        <div class="profile-header-cover"></div>
+
+        <div class="profile-header-content">
+            <div class="profile-header-img">
+                <img src="/img/user/profile.jpg" alt="" />
+            </div>
+            <ul class="profile-header-tab nav nav-tabs nav-tabs-v2">
+                <li class="nav-item">
+                    <a href="#profile-post" class="nav-link active" data-bs-toggle="tab">
+                        <div class="nav-field">Posts</div>
+                        <div class="nav-value">382</div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#profile-followers" class="nav-link" data-bs-toggle="tab">
+                        <div class="nav-field">Followers</div>
+                        <div class="nav-value">1.3m</div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#profile-media" class="nav-link" data-bs-toggle="tab">
+                        <div class="nav-field">Photos</div>
+                        <div class="nav-value">1,397</div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#profile-media" class="nav-link" data-bs-toggle="tab">
+                        <div class="nav-field">Videos</div>
+                        <div class="nav-value">120</div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#profile-followers" class="nav-link" data-bs-toggle="tab">
+                        <div class="nav-field">Following</div>
+                        <div class="nav-value">2,592</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- END profile-header -->
+    <!-- BEGIN profile-container -->
+    <div class="profile-container">
+
         <!-- BEGIN profile-sidebar -->
-		<div class="profile-sidebar">
-			<div class="desktop-sticky-top">
-				<!-- profile info -->
-				<h4>Francisco Camellon</h4>
-				<div class="font-weight-600 mb-3 text-muted mt-n2">@@franciscocamellon</div>
+        <div class="profile-sidebar">
+            <div class="desktop-sticky-top">
+                <!-- profile info -->
+                <h4>@firstName @lastName</h4>
+                <div class="font-weight-600 mb-3 text-muted mt-n2"> @userName</div>
                 <p>
-                    Here are many variations of passages of Lorem Ipsum available, but the majority 
-					have suffered alteration in some form, by injected humour, or randomised words which don't look.
+                    Here are many variations of passages of Lorem Ipsum available, but the majority
+                    have suffered alteration in some form, by injected humour, or randomised words which don't look.
                 </p>
-				<div class="mb-1">
-					<i class="fa fa-map-marker-alt fa-fw text-muted"></i> Brasília, DF
-				</div>
-				<div class="mb-3">
-					<i class="fa fa-link fa-fw text-muted"></i> twitter.com/franciscocamellon
-				</div>
-				
-				<hr class="mt-4 mb-4" />
-				
-				<!-- people-to-follow -->
-				<div class="font-weight-600 mb-3 fs-16px">People to follow</div>
-				<div class="d-flex align-items-center mb-3">
-					<img src="/img/user/user-1.jpg" alt="" width="30" class="rounded-circle" />
-					<div class="flex-fill ps-3 pe-3">
-						<div class="font-weight-600 text-truncate width-100">Noor Rowe</div>
-						<div class="fs-12px text-gray-700">3.1m followers</div>
-					</div>
-					<a href="#" class="btn btn-sm btn-outline-primary fs-11px font-weight-600">Follow</a>
-				</div>
-				<div class="d-flex align-items-center mb-3">
-					<img src="/img/user/user-2.jpg" alt="" width="30" class="rounded-circle" />
-					<div class="flex-fill ps-3 pe-3">
-						<div class="font-weight-600 text-truncate width-100">Abbey Parker</div>
-						<div class="fs-12px text-gray-700">302k followers</div>
-					</div>
-					<a href="#" class="btn btn-sm btn-outline-primary fs-11px font-weight-600">Follow</a>
-				</div>
-				<div class="d-flex align-items-center mb-3">
-					<img src="/img/user/user-3.jpg" alt="" width="30" class="rounded-circle" />
-					<div class="flex-fill ps-3 pe-3">
-						<div class="font-weight-600 text-truncate width-100">Savannah Nicholson</div>
-						<div class="fs-12px text-gray-700">720k followers</div>
-					</div>
-					<a href="#" class="btn btn-sm btn-outline-primary fs-11px font-weight-600">Follow</a>
-				</div>
-				<div class="d-flex align-items-center mb-3">
-					<img src="/img/user/user-4.jpg" alt="" width="30" class="rounded-circle" />
-					<div class="flex-fill ps-3 pe-3">
-						<div class="font-weight-600 text-truncate width-100">Kenny Bright</div>
-						<div class="fs-12px text-gray-700">1.4m followers</div>
-					</div>
-					<a href="#" class="btn btn-sm btn-outline-primary fs-11px font-weight-600">Follow</a>
-				</div>
-				<div class="d-flex align-items-center">
-					<img src="/img/user/user-5.jpg" alt="" width="30" class="rounded-circle" />
-					<div class="flex-fill ps-3 pe-3">
-						<div class="font-weight-600 text-truncate width-100">Cara Poole</div>
-						<div class="fs-12px text-gray-700">989k followers</div>
-					</div>
-					<a href="#" class="btn btn-sm btn-outline-primary fs-11px font-weight-600">Follow</a>
-				</div>
-			</div>
-		</div>
-		<!-- END profile-sidebar -->
-		
-		<!-- BEGIN profile-content -->
-		<div class="profile-content">
+                <div class="mb-1">
+                    <i class="fa fa-map-marker-alt fa-fw text-muted"></i> Brasília, DF
+                </div>
+                <div class="mb-3">
+                    <i class="fa fa-link fa-fw text-muted"></i> twitter.com/@userName
+                </div>
+
+                <hr class="mt-4 mb-4" />
+
+                <!-- people-to-follow -->
+                <div class="font-weight-600 mb-3 fs-16px">People to follow</div>
+                <div class="d-flex align-items-center mb-3">
+                    <img src="/img/user/user-1.jpg" alt="" width="30" class="rounded-circle" />
+                    <div class="flex-fill ps-3 pe-3">
+                        <div class="font-weight-600 text-truncate width-100">Noor Rowe</div>
+                        <div class="fs-12px text-gray-700">3.1m followers</div>
+                    </div>
+                    <a href="#" class="btn btn-sm btn-outline-primary fs-11px font-weight-600">Follow</a>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <img src="/img/user/user-2.jpg" alt="" width="30" class="rounded-circle" />
+                    <div class="flex-fill ps-3 pe-3">
+                        <div class="font-weight-600 text-truncate width-100">Abbey Parker</div>
+                        <div class="fs-12px text-gray-700">302k followers</div>
+                    </div>
+                    <a href="#" class="btn btn-sm btn-outline-primary fs-11px font-weight-600">Follow</a>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <img src="/img/user/user-3.jpg" alt="" width="30" class="rounded-circle" />
+                    <div class="flex-fill ps-3 pe-3">
+                        <div class="font-weight-600 text-truncate width-100">Savannah Nicholson</div>
+                        <div class="fs-12px text-gray-700">720k followers</div>
+                    </div>
+                    <a href="#" class="btn btn-sm btn-outline-primary fs-11px font-weight-600">Follow</a>
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <img src="/img/user/user-4.jpg" alt="" width="30" class="rounded-circle" />
+                    <div class="flex-fill ps-3 pe-3">
+                        <div class="font-weight-600 text-truncate width-100">Kenny Bright</div>
+                        <div class="fs-12px text-gray-700">1.4m followers</div>
+                    </div>
+                    <a href="#" class="btn btn-sm btn-outline-primary fs-11px font-weight-600">Follow</a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <img src="/img/user/user-5.jpg" alt="" width="30" class="rounded-circle" />
+                    <div class="flex-fill ps-3 pe-3">
+                        <div class="font-weight-600 text-truncate width-100">Cara Poole</div>
+                        <div class="fs-12px text-gray-700">989k followers</div>
+                    </div>
+                    <a href="#" class="btn btn-sm btn-outline-primary fs-11px font-weight-600">Follow</a>
+                </div>
+            </div>
+        </div>
+        <!-- END profile-sidebar -->
+        <!-- BEGIN profile-content -->
+        <div class="profile-content">
             <div class="row">
 
                 <div class="col-xl-8">
@@ -153,7 +161,7 @@
                                     <div class="d-flex align-items-center mb-3">
                                         <a href="#" class="text-decoration-none"><img src="/img/user/profile.jpg" alt="" width="50" class="rounded-circle" /></a>
                                         <div class="flex-fill ps-2">
-                                            <div class="font-weight-600"><a href="#" class="text-decoration-none">Francisco Camellon</a> at <a href="#" class="text-decoration-none">Rio de Janeiro</a></div>
+                                            <div class="font-weight-600"><a href="#" class="text-decoration-none">@firstName @lastName</a> at <a href="#" class="text-decoration-none">Rio de Janeiro</a></div>
                                             <div class="text-gray-600 fs-13px">March 4</div>
                                         </div>
                                     </div>
@@ -211,7 +219,7 @@
                                     <div class="d-flex align-items-center mb-3">
                                         <a href="#"><img src="/img/user/profile.jpg" alt="" width="50" class="rounded-circle" /></a>
                                         <div class="flex-fill ps-2">
-                                            <div class="font-weight-600"><a href="#" class="text-decoration-none">Francisco Camellon</a> at <a href="#" class="text-decoration-none">Rio de Janeiro</a></div>
+                                            <div class="font-weight-600"><a href="#" class="text-decoration-none">@firstName @lastName</a> at <a href="#" class="text-decoration-none">Rio de Janeiro</a></div>
                                             <div class="text-gray-600 fs-13px">May 5</div>
                                         </div>
                                     </div>
@@ -273,7 +281,7 @@
                                     <div class="d-flex align-items-center mb-3">
                                         <a href="#"><img src="/img/user/profile.jpg" alt="" width="50" class="rounded-circle" /></a>
                                         <div class="flex-fill ps-2">
-                                            <div class="font-weight-600"><a href="#" class="text-decoration-none">Francisco Camellon</a> at <a href="#" class="text-decoration-none">Rio de Janeiro</a></div>
+                                            <div class="font-weight-600"><a href="#" class="text-decoration-none">@firstName @lastName</a> at <a href="#" class="text-decoration-none">Rio de Janeiro</a></div>
                                             <div class="text-gray-600 fs-13px">March 12</div>
                                         </div>
                                     </div>
@@ -333,7 +341,7 @@
                                     <div class="d-flex align-items-center mb-3">
                                         <a href="#"><img src="/img/user/profile.jpg" alt="" width="50" class="rounded-circle" /></a>
                                         <div class="flex-fill ps-2">
-                                            <div class="font-weight-600"><a href="#" class="text-decoration-none">Francisco Camellon</a> at <a href="#" class="text-decoration-none">Rio de Janeiro</a></div>
+                                            <div class="font-weight-600"><a href="#" class="text-decoration-none">@firstName @lastName</a> at <a href="#" class="text-decoration-none">Rio de Janeiro</a></div>
                                             <div class="text-gray-600 fs-13px">May 5</div>
                                         </div>
                                     </div>
@@ -390,7 +398,6 @@
 
                         </div>
                         <!-- END tab-pane -->
-
                         <!-- BEGIN tab-pane PROFILE -->
                         <div class="tab-pane fade" id="profile-followers">
                             <div class="list-group">
@@ -478,7 +485,6 @@
                             <div class="text-center p-3"><a href="#" class="text-dark text-decoration-none">Show more <b class="caret"></b></a></div>
                         </div>
                         <!-- END tab-pane -->
-
                         <!-- BEGIN tab-pane -->
                         <div class="tab-pane fade" id="profile-media">
                             <div class="card mb-3">
@@ -595,9 +601,9 @@
                 <!-- END trend for you -->
 
             </div>
-		</div>
-		<!-- END profile-content -->
-	</div>
-	<!-- END profile-container -->
+        </div>
+        <!-- END profile-content -->
+    </div>
+    <!-- END profile-container -->
 </div>
 <!-- END profile -->

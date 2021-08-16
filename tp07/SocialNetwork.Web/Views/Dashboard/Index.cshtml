@@ -8,6 +8,7 @@
     System.Security.Claims.ClaimsPrincipal currentUser = this.User;
     var userApp = await _userManager.GetUserAsync(currentUser);
     var firstName = userApp.FirstName;
+    var lastName = userApp.LastName;
 }
 
 @section Scripts {
