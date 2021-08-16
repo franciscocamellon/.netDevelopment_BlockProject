@@ -42,7 +42,6 @@ namespace SocialNetwork.Web
 
             services.AddControllersWithViews();
             services.AddRazorPages();
-
             
         }
 

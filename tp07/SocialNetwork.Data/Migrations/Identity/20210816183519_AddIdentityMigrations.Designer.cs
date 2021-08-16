@@ -10,8 +10,8 @@ using SocialNetwork.Data;
 namespace SocialNetwork.Data.Migrations.Identity
 {
     [DbContext(typeof(IdentityDbContext))]
-    [Migration("20210816021206_AddCustomUserData")]
-    partial class AddCustomUserData
+    [Migration("20210816183519_AddIdentityMigrations")]
+    partial class AddIdentityMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

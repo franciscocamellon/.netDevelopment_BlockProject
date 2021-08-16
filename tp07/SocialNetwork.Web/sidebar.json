@@ -32,8 +32,7 @@
     },
     {
       "controller": "Profile",
-      //"action": "Edit",
-      "area": "",
+      "action": "Index",
       "icon": "fa fa-user-circle",
       "text": "Perfil"
     },

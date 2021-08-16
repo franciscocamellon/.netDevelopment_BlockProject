@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using SocialNetwork.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace SocialNetwork.Web.Areas.Identity.Pages.Account.Manage
 {
+    [Authorize]
     public class EnableAuthenticatorModel : PageModel
     {
         private readonly UserManager<User> _userManager;
