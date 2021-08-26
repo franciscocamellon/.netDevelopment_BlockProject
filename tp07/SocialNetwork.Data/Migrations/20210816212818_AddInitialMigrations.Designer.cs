@@ -10,7 +10,7 @@ using SocialNetwork.Data;
 namespace SocialNetwork.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210816183344_AddInitialMigrations")]
+    [Migration("20210816212818_AddInitialMigrations")]
     partial class AddInitialMigrations
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
