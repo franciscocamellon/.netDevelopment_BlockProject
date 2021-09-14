@@ -1,0 +1,258 @@
+﻿@model SocialNetwork.Domain.Entities.Profile
+@using Microsoft.AspNetCore.Identity
+@using SocialNetwork.Domain.Entities
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> _userManager;
+
+@{
+    ViewData["Title"] = "Index";
+
+    System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+    var userApp = await _userManager.GetUserAsync(currentUser);
+    var userName = userApp.UserName;
+    //var lastName = userApp.LastName;
+
+}
+
+
+@section Styles {
+    <link href="~/lib/tag-it/css/jquery.tagit.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet" />
+    <link href="~/lib/blueimp-file-upload/css/jquery.fileupload.css" rel="stylesheet" />
+    <link href="~/lib/summernote/dist/summernote-lite.css" rel="stylesheet" />
+    <link href="~/lib/spectrum-colorpicker2/dist/spectrum.min.css" rel="stylesheet" />
+    <link href="~/lib/select-picker/dist/picker.min.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/lib/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/lib/moment/min/moment.min.js"></script>
+    <script src="~/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="~/lib/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="~/lib/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <script src="~/lib/bootstrap-3-typeahead/bootstrap3-typeahead.js"></script>
+    <script src="~/lib/jquery.maskedinput/src/jquery.maskedinput.js"></script>
+    <script src="~/lib/tag-it/js/tag-it.min.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+    <script src="~/lib/blueimp-tmpl/js/tmpl.min.js"></script>
+    <script src="~/lib/blueimp-load-image/js/load-image.all.min.js"></script>
+    <script src="~/lib/blueimp-canvas-to-blob/js/canvas-to-blob.min.js"></script>
+    <script src="~/lib/blueimp-gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-audio.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-video.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-ui.js"></script>
+    <script src="~/lib/summernote/dist/summernote-lite.min.js"></script>
+    <script src="~/lib/spectrum-colorpicker2/dist/spectrum.min.js"></script>
+    <script src="~/lib/select-picker/dist/picker.min.js"></script>
+    <script src="~/lib/highlight.js/highlight.min.js"></script>
+    <script src="~/js/demo/highlightjs.demo.js"></script>
+    <script src="~/js/demo/form-plugins.demo.js"></script>
+    <script src="~/js/demo/sidebar-scrollspy.demo.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#graduationDateInput').datepicker({
+                autoclose: true,
+                format: 'dd/mm/yyyy',
+                language: 'pt-BR'
+            });
+        });
+    </script>
+}
+
+
+
+<!-- BEGIN container -->
+<div class="container">
+    <!-- BEGIN row -->
+    <div class="row justify-content-center">
+        <!-- BEGIN col-10 -->
+        <div class="col-xl-10">
+            <!-- BEGIN row -->
+            <div class="row">
+
+                <!-- BEGIN col-9 -->
+                <div class="col-xl-9">
+
+                    <!-- BEGIN #mediaAndFiles -->
+                    <div id="jQueryFileUpload" class="mb-5">
+
+                        <h4><i class="far fa-images fa-fw"></i> Foto de Perfil</h4>
+                        <p>Atualize sua foto na rede social. Perfis com foto são mais visualizados!</p>
+
+
+
+                        <form id="fileupload" asp-action="EditImageProfile" method="POST" enctype="multipart/form-data">
+                            <div class="card">
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="mb-3">
+                                                <div class="profile-header-content">
+                                                    <div class="profile-header-img">
+                                                        <img src="@(Model?.UriImageProfile != null ? Model.UriImageProfile : "/img/user/user.jpg")" class="img-fluid img-thumbnail" style="width: 200px;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-xl-6">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="defaultFile">Selecione uma imagem para o seu perfil:</label>
+                                                <input type="file" class="form-control" name="imageProfileFile" accept=".jpg,.png" required />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-6">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="defaultFile">&nbsp;</label></br>
+                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                    <!-- END #mediaAndFiles -->
+
+
+                    <!-- BEGIN #dadosPerfil -->
+                    <div id="dadosPerfil" class="mb-5">
+
+                        <h4><i class="far fa-user fa-fw"></i> Dados de Perfil</h4>
+                        <p>Visualize e atualize suas informações e configurações de perfil.</p>
+
+                        @if (ViewBag.ShowMessage != null)
+                        {
+                            <div class="alert alert-success">
+                                <strong>Feito!</strong> Os dados do seu perfil foram atualizados com sucesso.
+                            </div>
+                        }
+
+
+                        <div class="card">
+                            <div class="card-body pb-2">
+                                <form asp-action="Edit">
+
+                                    <input type="hidden" asp-for="Id" />
+
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Tipo de perfil <span class="text-danger">*</span></label>
+                                                <select class="form-control" id="userTypeInput" asp-for="UserType">
+                                                    <option value=""></option>
+                                                    <option value="developer">Developer</option>
+                                                    <option value="enterprise">Enterprise</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Nome <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="FirstNameInput" asp-for="FirstName" placeholder="ex: John" />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Sobrenome <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" id="LastNameInput" asp-for="LastName" placeholder="ex: Smith" />
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-xl-8">
+                                            <div class="mb-4">
+                                                <label class="form-label">Bio <span class="text-danger">*</span></label>
+                                                <textarea class="form-control" id="bioInput" rows="3" asp-for="Bio"></textarea>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Aplicativos publicados</label>
+                                                <input asp-for="PublishedApps" class="form-control" />
+                                                <span asp-validation-for="PublishedApps" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-6">
+                                            <div class="mb-3">
+                                                <label class="form-label">Data de formação <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="graduationDateInput" asp-for="GraduationDate" placeholder="ex 30/07/1995" />
+                                                    <label class="input-group-text" for="graduationDateInput"><i class="fa fa-calendar"></i></label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-6">
+                                            <div class="form-check">
+                                                <label class="form-check-label" for="employedStatusCheck" asp-for="EmployedStatus" >Empregado</label>
+                                                <input type="checkbox" class="form-check-input" id="employedStatusCheck" asp-for="EmployedStatus" />
+                                                <span asp-validation-for="EmployedStatus" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                    </div></br>
+
+                                    <div class="mb-3 row">
+                                        <div class="col-sm-10">
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END #bootstrapDatepicker -->
+
+                </div>
+                <!-- END col-9-->
+                <!-- BEGIN col-3 -->
+                <div class="col-xl-3">
+                    <!-- BEGIN #sidebar-bootstrap -->
+                    <nav id="sidebar-bootstrap" class="navbar navbar-sticky d-none d-xl-block">
+                        <nav class="nav text-nowrap">
+                            <a class="nav-link" href="#jQueryFileUpload" data-toggle="scroll-to">Foto de Perfil</a>
+                            <a class="nav-link" href="#dadosPerfil" data-toggle="scroll-to">Dados de Perfil</a>
+                        </nav>
+                    </nav>
+                    <!-- END #sidebar-bootstrap -->
+                </div>
+                <!-- END col-3 -->
+
+            </div>
+            <!-- END row -->
+        </div>
+        <!-- END col-10 -->
+    </div>
+    <!-- END row -->
+</div>
+<!-- END container -->
