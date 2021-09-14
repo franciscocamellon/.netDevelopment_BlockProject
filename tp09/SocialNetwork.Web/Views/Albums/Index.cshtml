@@ -1,0 +1,136 @@
+﻿@model IEnumerable<SocialNetwork.Domain.Entities.Album>
+
+@{
+    ViewData["Title"] = "Gallery";
+    ViewData["AppClass"] = "app-content-full-height";
+    ViewData["AppContentClass"] = "p-0";
+    ViewData["HtmlAttribute"] = "itemscope itemtype='http://schema.org/WebPage'";
+}
+
+@section Styles {
+    <link href="~/lib/photoswipe/dist/photoswipe.css" rel="stylesheet" />
+    <link href="~/lib/photoswipe/dist/default-skin/default-skin.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/lib/photoswipe/dist/photoswipe-ui-default.min.js"></script>
+    <script src="~/lib/photoswipe/dist/photoswipe.min.js"></script>
+    <script src="~/js/demo/page-gallery.demo.js"></script>
+}
+
+@section OutterAppContainerContent {
+    <!-- BEGIN photoswipe -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END photoswipe -->
+}
+<!-- BEGIN d-flex -->
+<div class="d-block d-md-flex align-items-stretch h-100">
+    <!-- BEGIN gallery-menu-container -->
+    <div class="gallery-menu-container">
+        <!-- BEGIN scrollbar -->
+        <div data-scrollbar="true" data-height="100%" data-skip-mobile="true">
+            <!-- BEGIN gallery-menu -->
+            <div class="gallery-menu">
+                <div class="gallery-menu-header">Main</div>
+                <div class="gallery-menu-item"><a asp-action="Create" class="gallery-menu-link">Create albums</a></div>
+                <div class="gallery-menu-header">Albums</div>
+                @if (Model != null)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <div class="gallery-menu-item"><a asp-action="Details" asp-route-id="@item?.Id" class="gallery-menu-link"><i class="fa fa-fw fa-camera-retro me-1"></i> @(item?.AlbumName)</a></div>
+                    }
+                }
+               
+            </div>
+            <!-- END gallery-menu -->
+        </div>
+        <!-- end scrollbar -->
+    </div>
+    <!-- END gallery-menu-container -->
+
+    
+        <!-- BEGIN gallery-content-container -->
+        <div class="gallery-content-container">
+            <!-- BEGIN scrollbar -->
+            <div data-scrollbar="true" data-height="100%">
+                <!-- BEGIN gallery-content -->
+                <div class="gallery-content">
+                @if (Model != null)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <!-- BEGIN gallery -->
+                        <div class="gallery">
+                            <!-- BEGIN gallery-header -->
+                            <div class="d-flex align-items-center mb-3">
+                                <!-- BEGIN gallery-title -->
+                                <div class="gallery-title mb-0">
+                                    <a asp-action="Details" asp-route-id="@item?.Id">
+                                        @(item?.AlbumName) <i class="fa fa-chevron-right"></i>
+                                        <small>(@item?.CreationDate)</small>
+                                    </a>
+                                </div>
+                                <!-- END gallery-title -->
+                                <!-- BEGIN btn-group -->
+                                <div class="ms-auto btn-group">
+                                    <a href="#" class="btn btn-default btn-sm"><i class="fa fa-play"></i></a>
+                                    <a href="#" class="btn btn-default btn-sm"><i class="fa fa-plus"></i></a>
+                                    <a asp-action="Delete" asp-route-id="@item?.Id" class="btn btn-default btn-sm"><i class="fas fa-trash-alt"></i></a>
+                                </div>
+                                <!-- END btn-group -->
+                            </div>
+                            <!-- END gallery-header -->
+                            <!-- BEGIN gallery-image -->
+                            <div class="gallery-image">
+                                <ul class="gallery-image-list">
+                                    <li><a href="/img/gallery/gallery-42.jpg" itemprop="contentUrl" data-size="752x502"><img src="/img/gallery/gallery-42.jpg" itemprop="thumbnail" alt="Wedding Image 1" class="img-portrait"/></a></li>
+
+                                </ul>
+                            </div>
+                            <!-- END gallery-image -->
+                        </div>
+                        <!-- END gallery -->
+                    }
+                }
+                </div>
+                <!-- END gallery-content -->
+            </div>
+            <!-- END scrollbar -->
+        </div>
+        <!-- END gallery-content-container -->
+</div>
+<!-- END d-flex -->
