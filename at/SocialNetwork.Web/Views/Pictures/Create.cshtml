@@ -1,0 +1,70 @@
+﻿@model SocialNetwork.Domain.Entities.PictureModel
+
+@{
+    ViewData["Title"] = "Upload pictures";
+}
+
+@*<h1>Create</h1>
+
+    <h4>Picture</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form id="fileupload" asp-action="Create" method="POST" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="UriImageAlbum" class="control-label"></label>
+                    <input type="file" asp-for="UriImageAlbum" class="form-control" multiple required accept=".jpg,.png" />
+                    <span asp-validation-for="UriImageAlbum" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="AlbumId" class="control-label"></label>
+                    <select asp-for="AlbumId" class="form-control" asp-items="ViewBag.Albuns">
+                        <option selected value="">Escolha o Album</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>*@
+
+
+@section Scripts {
+    <script src="~/lib/highlight.js/highlight.min.js"></script>
+    <script src="~/js/demo/highlightjs.demo.js"></script>
+    <script src="~/js/demo/sidebar-scrollspy.demo.js"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+@section OutterAppContainerContent {
+    <!-- BEGIN #modalEditAlbum -->
+    <div class="modal fade" id="modalEditAlbum">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Upload a picture</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <div class="row row-space-10">
+                            <div class="form-group">
+                                <label asp-for="UriImageAlbum" class="control-label"></label>
+                                <input type="file" asp-for="UriImageAlbum" class="form-control" multiple required accept=".jpg,.png"/>
+                                <span asp-validation-for="UriImageAlbum" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" value="Create" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END #modalEdit -->
+}

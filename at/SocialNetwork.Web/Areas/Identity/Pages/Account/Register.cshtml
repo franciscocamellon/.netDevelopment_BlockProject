@@ -18,6 +18,11 @@
 			<p class="text-muted text-center">One Admin ID is all you need to access all the Admin services.</p>
       <div asp-validation-summary="All" class="text-danger"></div>
 			<div class="mb-3">
+				<label asp-for="Input.UserName" class="form-label"></label>
+				<input asp-for="Input.UserName" class="form-control form-control-lg fs-15px" placeholder="e.g John Smith" />
+        <span asp-validation-for="Input.UserName" class="text-danger"></span>
+			</div>
+			<div class="mb-3">
 				<label asp-for="Input.Email" class="form-label"></label>
 				<input asp-for="Input.Email" class="form-control form-control-lg fs-15px" placeholder="e.g John Smith" />
         <span asp-validation-for="Input.Email" class="text-danger"></span>

@@ -1,0 +1,38 @@
+﻿@model SocialNetwork.Domain.Entities.Picture
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>UserPicture</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form id="fileupload" asp-action="Create" method="POST" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="UriImageAlbum" class="control-label"></label>
+                <input type="file" asp-for="UriImageAlbum" class="form-control" required accept=".jpg,.png" />
+                <span asp-validation-for="UriImageAlbum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlbumId" class="control-label"></label>
+                <select asp-for="AlbumId" class="form-control" asp-items="ViewBag.AlbumId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,21 +1,38 @@
-﻿{
+{
   "sidebarMenu": [
     {
       "text": "Home",
       "is_header": true
     },
-    {
-      "controller": "Dashboard",
-      "action": "Index",
-      "icon": "fa fa-laptop",
-      "text": "Dashboard"
-    },
+
     {
       "controller": "Feed",
       "action": "Index",
       "icon": "fa fa-list-alt",
       "text": "Feed"
     },
+    {
+      "controller": "Albums",
+      "action": "Index",
+      "area": "",
+      "icon": "fas fa-camera",
+      "text": "Fotos"
+    },
+    {
+      "controller": "UserApps",
+      "action": "Edit",
+      "area": "",
+      "icon": "fa fa-mobile-alt",
+      "text": "Aplicativos"
+    },
+    {
+      "controller": "Albums",
+      "action": "NewIndex",
+      "area": "",
+      "icon": "fa fa-mobile-alt",
+      "text": "Teste fotos"
+    },
+
     {
       "is_divider": true
     },
@@ -24,18 +41,26 @@
       "is_header": true
     },
     {
+      "controller": "Profile",
+      "action": "Edit",
+      "area": "",
+      "icon": "fa fa-user-circle",
+      "text": "Perfil"
+    },
+    {
       "controller": "Account",
       "action": "Manage",
       "area": "Identity",
       "icon": "fa fa-fingerprint",
       "text": "Segurança"
     },
+
+
     {
-      "controller": "Profile",
-      //"action": "Edit",
-      "area": "",
-      "icon": "fa fa-user-circle",
-      "text": "Perfil"
+      "controller": "Dashboard",
+      "action": "Index",
+      "icon": "fa fa-laptop",
+      "text": "Dashboard"
     },
     {
       "is_divider": true

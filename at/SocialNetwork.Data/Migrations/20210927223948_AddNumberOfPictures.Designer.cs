@@ -10,8 +10,8 @@ using SocialNetwork.Data;
 namespace SocialNetwork.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210725144810_AddInitMigrations")]
-    partial class AddInitMigrations
+    [Migration("20210927223948_AddNumberOfPictures")]
+    partial class AddNumberOfPictures
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -156,6 +156,115 @@ namespace SocialNetwork.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("SocialNetwork.Domain.Entities.AlbumModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AlbumName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("NumberOfPictures")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProfileId");
+
+                    b.ToTable("Albums");
+                });
+
+            modelBuilder.Entity("SocialNetwork.Domain.Entities.PictureModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AlbumId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UploadDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UriImageAlbum")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AlbumId");
+
+                    b.ToTable("Pictures");
+                });
+
+            modelBuilder.Entity("SocialNetwork.Domain.Entities.Post", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ProfileId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProfileId");
+
+                    b.ToTable("Posts");
+                });
+
+            modelBuilder.Entity("SocialNetwork.Domain.Entities.Profile", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Bio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EmployedStatus")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("GraduationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PublishedApps")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UriImageProfile")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Profiles");
+                });
+
             modelBuilder.Entity("SocialNetwork.Domain.Entities.User", b =>
                 {
                     b.Property<string>("Id")
@@ -270,6 +379,47 @@ namespace SocialNetwork.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("SocialNetwork.Domain.Entities.AlbumModel", b =>
+                {
+                    b.HasOne("SocialNetwork.Domain.Entities.Profile", "Profile")
+                        .WithMany("Albums")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Profile");
+                });
+
+            modelBuilder.Entity("SocialNetwork.Domain.Entities.PictureModel", b =>
+                {
+                    b.HasOne("SocialNetwork.Domain.Entities.AlbumModel", "Album")
+                        .WithMany("Pictures")
+                        .HasForeignKey("AlbumId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Album");
+                });
+
+            modelBuilder.Entity("SocialNetwork.Domain.Entities.Post", b =>
+                {
+                    b.HasOne("SocialNetwork.Domain.Entities.Profile", "Profile")
+                        .WithMany()
+                        .HasForeignKey("ProfileId");
+
+                    b.Navigation("Profile");
+                });
+
+            modelBuilder.Entity("SocialNetwork.Domain.Entities.AlbumModel", b =>
+                {
+                    b.Navigation("Pictures");
+                });
+
+            modelBuilder.Entity("SocialNetwork.Domain.Entities.Profile", b =>
+                {
+                    b.Navigation("Albums");
                 });
 #pragma warning restore 612, 618
         }

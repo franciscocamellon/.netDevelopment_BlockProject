@@ -1,10 +1,11 @@
-﻿@model IEnumerable<SocialNetwork.Domain.Entities.Album>
+﻿@model AlbumIndexViewModel
 
 @{
     ViewData["Title"] = "Gallery";
     ViewData["AppClass"] = "app-content-full-height";
     ViewData["AppContentClass"] = "p-0";
     ViewData["HtmlAttribute"] = "itemscope itemtype='http://schema.org/WebPage'";
+
 }
 
 @section Styles {
@@ -16,6 +17,14 @@
     <script src="~/lib/photoswipe/dist/photoswipe-ui-default.min.js"></script>
     <script src="~/lib/photoswipe/dist/photoswipe.min.js"></script>
     <script src="~/js/demo/page-gallery.demo.js"></script>
+}
+
+@{
+    if (Model.Albums == null || !Model.Albums.Any())
+    {
+        <p>Nenhum Álbum cadastrado :(</p>
+        return;
+    }
 }
 
 @section OutterAppContainerContent {
@@ -69,29 +78,27 @@
                 <div class="gallery-menu-header">Albums</div>
                 @if (Model != null)
                 {
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.Albums)
                     {
                         <div class="gallery-menu-item"><a asp-action="Details" asp-route-id="@item?.Id" class="gallery-menu-link"><i class="fa fa-fw fa-camera-retro me-1"></i> @(item?.AlbumName)</a></div>
                     }
                 }
-               
+
             </div>
             <!-- END gallery-menu -->
         </div>
         <!-- end scrollbar -->
     </div>
     <!-- END gallery-menu-container -->
-
-    
-        <!-- BEGIN gallery-content-container -->
-        <div class="gallery-content-container">
-            <!-- BEGIN scrollbar -->
-            <div data-scrollbar="true" data-height="100%">
-                <!-- BEGIN gallery-content -->
-                <div class="gallery-content">
+    <!-- BEGIN gallery-content-container -->
+    <div class="gallery-content-container">
+        <!-- BEGIN scrollbar -->
+        <div data-scrollbar="true" data-height="100%">
+            <!-- BEGIN gallery-content -->
+            <div class="gallery-content">
                 @if (Model != null)
                 {
-                    @foreach (var item in Model)
+                    @foreach (var item in Model.Albums)
                     {
                         <!-- BEGIN gallery -->
                         <div class="gallery">
@@ -115,22 +122,31 @@
                             </div>
                             <!-- END gallery-header -->
                             <!-- BEGIN gallery-image -->
-                            <div class="gallery-image">
-                                <ul class="gallery-image-list">
-                                    <li><a href="/img/gallery/gallery-42.jpg" itemprop="contentUrl" data-size="752x502"><img src="/img/gallery/gallery-42.jpg" itemprop="thumbnail" alt="Wedding Image 1" class="img-portrait"/></a></li>
-
-                                </ul>
-                            </div>
+                            @if (item != null)
+                            {
+                                @foreach (var picture in item?.Pictures)
+                                {
+                                    <div class="gallery-image">
+                                        <ul class="gallery-image-list">
+                                            <li>
+                                                <a href="@picture?.UriImageAlbum" itemprop="contentUrl" data-size="752x502">
+                                                    <img src="@picture?.UriImageAlbum" itemprop="thumbnail" alt="Wedding Image 1" class="img-portrait" />
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                }
+                            }
                             <!-- END gallery-image -->
                         </div>
                         <!-- END gallery -->
                     }
                 }
-                </div>
-                <!-- END gallery-content -->
             </div>
-            <!-- END scrollbar -->
+            <!-- END gallery-content -->
         </div>
-        <!-- END gallery-content-container -->
+        <!-- END scrollbar -->
+    </div>
+    <!-- END gallery-content-container -->
 </div>
 <!-- END d-flex -->

@@ -1,0 +1,141 @@
+@model AlbumIndexViewModel
+
+@{
+    ViewData["Title"] = "Settings";
+}
+
+@section Styles {
+    <link href="~/lib/photoswipe/dist/photoswipe.css" rel="stylesheet" />
+    <link href="~/lib/photoswipe/dist/default-skin/default-skin.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/lib/highlight.js/highlight.min.js"></script>
+    <script src="~/js/demo/highlightjs.demo.js"></script>
+    <script src="~/js/demo/sidebar-scrollspy.demo.js"></script>
+    <script src="~/lib/photoswipe/dist/photoswipe-ui-default.min.js"></script>
+    <script src="~/lib/photoswipe/dist/photoswipe.min.js"></script>
+    <script src="~/js/demo/page-gallery.demo.js"></script>
+}
+
+@section OutterAppContainerContent  {
+    <!-- BEGIN photoswipe -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div>
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END photoswipe -->
+}
+
+<div class="modal" id="myModal"></div>
+<!-- BEGIN container -->
+<div class="container">
+    <!-- BEGIN row -->
+    <div class="row justify-content-center">
+        <!-- BEGIN col-10 -->
+        <div class="col-xl-10">
+            <!-- BEGIN row -->
+            <div class="row">
+                <!-- BEGIN col-9 -->
+                <div class="col-xl-9">
+                    @if (Model?.Albums != null)
+                    {
+                        
+                        @foreach (var item in Model?.Albums)
+                        {
+                            <!-- BEGIN #general -->
+                            <div id="@item.AlbumName" class="gallery">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="gallery-title mb-0">
+                                        <a asp-action="Details" asp-route-id="@item?.Id">
+                                            <h4>@item.AlbumName</h4>
+                                            <small>@item?.CreationDate.Date.ToLongDateString() - @item?.NumberOfPictures </small>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="card">
+                                    <!-- BEGIN gallery -->
+                                    <div class="gallery">
+                                        <!-- BEGIN gallery-image -->
+                                        <div class="gallery-image">
+                                            <ul class="gallery-image-list">
+                                                @foreach (var picture in item.Pictures)
+                                                {
+                                                    <li>
+                                                        <a href="@Html.DisplayFor(modelPicture => picture.UriImageAlbum)" itemprop="contentUrl" data-size="752x502">
+                                                            <img src="@Html.DisplayFor(modelPicture => picture.UriImageAlbum)" itemprop="thumbnail" alt="Wedding Image 1" class="img-portrait" />
+                                                        </a>
+                                                    </li>
+                                                }
+                                            </ul>
+                                        </div>
+                                        <!-- END gallery-image -->
+                                    </div>
+                                    <!-- END gallery -->
+                                </div>
+                            </div>
+                            <!-- END #general -->
+                        }
+                        
+                    }
+                </div>
+
+                <!-- END col-9-->
+                <!-- BEGIN col-3 -->
+                <div class="col-xl-3">
+                    <!-- BEGIN #sidebar-bootstrap -->
+                    <nav id="sidebar-bootstrap" class="navbar navbar-sticky d-none d-xl-block">
+                        <nav class="nav">
+                            <a asp-action="Create" class="nav-link"><h5>Criar novo álbum</h5></a>
+                            <a class="nav-link"><h5>Álbuns</h5></a>
+                            @if (Model != null)
+                            {
+                                @foreach (var item in Model?.Albums)
+                                {
+                                    <a class="nav-link" href="#@item.AlbumName" data-bs-toggle="scroll-to">@item.AlbumName</a>
+                                }
+                            }
+                        </nav>
+                    </nav>
+                    <!-- END #sidebar-bootstrap -->
+                </div>
+                <!-- END col-3 -->
+            </div>
+            <!-- END row -->
+        </div>
+        <!-- END col-10 -->
+    </div>
+    <!-- END row -->
+</div>
+<!-- END container -->

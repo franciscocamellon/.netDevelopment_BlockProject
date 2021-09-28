@@ -13,6 +13,7 @@ namespace SocialNetwork.Domain.Entities
         public DateTime CreationDate { get; set; }
         public Profile Profile { get; set; } 
         public int ProfileId { get; set; }
+        public List<Picture> Pictures { get; set; }
 
     }
 }

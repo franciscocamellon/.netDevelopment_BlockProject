@@ -26,7 +26,7 @@ namespace SocialNetwork.Web
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("WebApplicationDbContext")));
 
             services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<IProfileRepository, ProfileRepository>();
