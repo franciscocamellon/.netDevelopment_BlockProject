@@ -70,7 +70,7 @@
                 <div class="col-xl-9">
                     @if (Model?.Albums != null)
                     {
-                        
+
                         @foreach (var item in Model?.Albums)
                         {
                             <!-- BEGIN #general -->
@@ -79,7 +79,7 @@
                                     <div class="gallery-title mb-0">
                                         <a asp-action="Details" asp-route-id="@item?.Id">
                                             <h4>@item.AlbumName</h4>
-                                            <small>@item?.CreationDate.Date.ToLongDateString() - @item?.Pictures.Count() </small>
+                                            <small>@item?.CreationDate.Date.ToLongDateString() - @item?.Pictures.Count() items</small>
                                         </a>
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@
                             </div>
                             <!-- END #general -->
                         }
-                        
+
                     }
                 </div>
 
@@ -119,7 +119,7 @@
                         <nav class="nav">
                             <a asp-action="Create" class="nav-link"><h5>Criar novo álbum</h5></a>
                             <a class="nav-link"><h5>Álbuns</h5></a>
-                            @if (Model != null)
+                            @if (Model?.Albums != null)
                             {
                                 @foreach (var item in Model?.Albums)
                                 {

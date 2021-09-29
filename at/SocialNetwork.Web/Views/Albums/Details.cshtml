@@ -1,5 +1,4 @@
-﻿@*@model SocialNetwork.Domain.Entities.AlbumModel*@
-@model AlbumViewModel
+﻿@model AlbumViewModel
 
 @{
     ViewData["Title"] = "Details";
@@ -30,7 +29,7 @@
                 </div>
 
                 @{
-                    await Html.RenderPartialAsync("_CreateAlbumPartial");
+                    await Html.RenderPartialAsync("_EditAlbumPartial");
                 }
 
             </div>
@@ -63,9 +62,9 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
-                @{
+                @*@{
                     await Html.RenderPartialAsync("_UploadPicturesPartial");
-                }
+                }*@
 
             </div>
         </div>
@@ -135,7 +134,7 @@
                 <div class="ms-auto btn-group">
                     <a href="#modalEdit" data-bs-toggle="modal" class="btn btn-default btn-sm"><i class="fas fa-pencil-alt"></i></a>
                     <a href="#modalUploadpicture" data-bs-toggle="modal" class="btn btn-default btn-sm"><i class="fa fa-plus"></i></a>
-                    @*<a asp-controller="Pictures" asp-action="Create" asp-route-id="@Model?.Id" class="btn btn-default btn-sm"><i class="fa fa-plus"></i></a>*@
+                    <a asp-controller="Pictures" asp-action="Create" asp-route-id="@Model?.Id" class="btn btn-default btn-sm"><i class="fa fa-plus"></i></a>
                     <a href="#modalDelete" data-bs-toggle="modal" class="btn btn-default btn-sm"><i class="fas fa-trash-alt"></i></a>
                 </div>
                 <!-- END btn-group -->

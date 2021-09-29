@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Configuration;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using SocialNetwork.Data;
 using SocialNetwork.Domain.Entities;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
-using SocialNetwork.Domain.Model.Interfaces.Repositories;
 using SocialNetwork.Web.Models;
 using SocialNetwork.Web.Services;
 
@@ -64,9 +60,15 @@ namespace SocialNetwork.Web.Controllers
         // GET: Pictures/Create
         public async Task<IActionResult> Create(Guid id)
         {
-            await FillWithAlbumId(string.Empty , id);
+            //await FillWithAlbumId(id);
+            var albumViewModel = await _albumHttpService.GetByIdAsync(id);
+            var pictureViewModel = new PictureViewModel
+            {
+                Album = albumViewModel,
+                AlbumId = albumViewModel.Id
+            };
 
-            return View();
+            return View(pictureViewModel);
         }
 
         // POST: Pictures/Create
@@ -156,9 +158,9 @@ namespace SocialNetwork.Web.Controllers
             return fileContent;
         }
 
-        private async Task FillWithAlbumId(string search, Guid? albumId = null)
+        private async Task FillWithAlbumId(Guid? albumId = null)
         {
-            var albumViewModels = await _albumHttpService.GetAllAsync(search);
+            var albumViewModels = await _albumHttpService.GetAllAsync(string.Empty);
 
             ViewBag.Albuns = new SelectList(
                 albumViewModels,

@@ -14,10 +14,16 @@ namespace SocialNetwork.Web.Controllers
     public class AlbumsController : Controller
     {
         private readonly IAlbumHttpService _albumHttpService;
+        private readonly UserManager<User> _userManager;
+        private readonly IProfileRepository _profileRepository;
 
-        public AlbumsController(IAlbumHttpService albumHttpService)
+        public AlbumsController(IAlbumHttpService albumHttpService,
+                                UserManager<User> userManager,
+                                IProfileRepository profileRepository)
         {
             _albumHttpService = albumHttpService;
+            _userManager = userManager;
+            _profileRepository = profileRepository;
         }
 
         // GET: Albums
@@ -61,16 +67,23 @@ namespace SocialNetwork.Web.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(AlbumViewModel albumViewModel)
+        public async Task<IActionResult> Create([Bind("Id,CreationDate,AlbumName,ProfileId")] AlbumViewModel albumViewModel)
         {
             if (ModelState.IsValid)
             {
-                return View(albumViewModel);
+                var currentUserId = _userManager.GetUserId(User);
+                var profile = await _profileRepository.GetProfileByUserIdAsync(currentUserId);
+
+                albumViewModel.ProfileId = profile.Id;
+                albumViewModel.Id = Guid.NewGuid();
+                albumViewModel.CreationDate = DateTime.Now;
+
+                await _albumHttpService.CreateAsync(albumViewModel);
+
+                return RedirectToAction(nameof(Create), "Pictures",new {id = albumViewModel.Id});
             }
-
-            var albumCreated = await _albumHttpService.CreateAsync(albumViewModel);
-
-            return RedirectToAction(nameof(Create), "Pictures", new {AlbumId = albumViewModel.Id});
+           
+            return View(albumViewModel);
         }
 
         // GET: Albums

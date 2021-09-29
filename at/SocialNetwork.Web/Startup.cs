@@ -40,7 +40,7 @@ namespace SocialNetwork.Web
             var pictureApiAddress = Configuration.GetValue<string>("ApiAddresses:Picture");
 
             services.AddHttpClient("", client => {
-                client.BaseAddress = new Uri(profileImageApiAddress);
+                client.BaseAddress = new Uri(Configuration["BaseUrlApi"]);
             });
             services.AddHttpClient<IAlbumHttpService, AlbumHttpService>(x => 
                 x.BaseAddress = new Uri(albumApiAddress));

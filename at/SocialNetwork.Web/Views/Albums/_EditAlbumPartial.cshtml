@@ -2,25 +2,26 @@
 
 
 <div class="modal-body">
-    <form asp-action="Delete">
+    <form asp-action="Edit">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="Id" />
         <input type="hidden" asp-for="ProfileId" />
         <input type="hidden" asp-for="CreationDate" />
-        <input type="hidden" asp-for="AlbumName" />
         
         <div class="form-group">
-            <p>Deseja deletar o álbum  @Html.DisplayFor(model => model.AlbumName) e suas fotos?</p>
+            <label asp-for="AlbumName" class="control-label"></label>
+            <input asp-for="AlbumName" class="form-control" />
+            <span asp-validation-for="AlbumName" class="text-danger"></span>
         </div>
 
         <div><br/></div>
-        <div class="form-group">
+        <div class="modal-footer">
             <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
-            <input type="submit" value="Deletar" class="btn btn-danger" />
+            <input type="submit" value="Save changes" class="btn btn-primary" />
         </div>
     </form>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
