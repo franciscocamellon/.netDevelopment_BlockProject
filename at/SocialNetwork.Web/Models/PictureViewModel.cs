@@ -1,17 +1,18 @@
-﻿using SocialNetwork.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SocialNetwork.Web.Models
 {
     public class PictureViewModel
     {
         public Guid Id { get; set; }
-        public DateTime UploadDate { get; set; }    
+
+        [DataType(DataType.Date)]
+        public DateTime UploadDate { get; set; }
+
+        [Required]
         public string UriImageAlbum { get; set; }
+
         public Guid AlbumId { get; set; }
         public AlbumViewModel Album { get; set; }
         

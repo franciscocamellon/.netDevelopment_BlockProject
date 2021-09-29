@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SocialNetwork.Domain.Entities;
-using SocialNetwork.Domain.Interfaces.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using SocialNetwork.Domain.Model.Interfaces.Repositories;
 
 namespace SocialNetwork.Data.Repositories
 {

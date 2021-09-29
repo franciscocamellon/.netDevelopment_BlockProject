@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SocialNetwork.Domain.Entities;
-using SocialNetwork.Domain.Interfaces.Repositories;
+using SocialNetwork.Domain.Model.Interfaces.Repositories;
 
 namespace SocialNetwork.Data.Repositories
 {
@@ -25,9 +25,17 @@ namespace SocialNetwork.Data.Repositories
             return await albums.ToListAsync();
         }
 
-        public async Task<IEnumerable<AlbumModel>> GetAllAsync()
+        public async Task<IEnumerable<AlbumModel>> GetAllAsync(string search = null)
         {
+            search ??= string.Empty;
             var albums = _dbContext.Albums.AsQueryable();
+
+            if (string.IsNullOrWhiteSpace(search))
+            {
+                albums = albums
+                    .Where(x=> x.AlbumName.Contains(search));
+            }
+
             var pictures = _dbContext.Pictures.AsQueryable();
 
             var result = await albums
@@ -42,7 +50,6 @@ namespace SocialNetwork.Data.Repositories
                 .Select(x =>
                 {
                     x.Albuns.Pictures = x.Pictures;
-                    x.Albuns.NumberOfPictures = x.Pictures.Count();
                     return x.Albuns;
                 });
 
@@ -50,25 +57,14 @@ namespace SocialNetwork.Data.Repositories
         }
         public async Task<AlbumModel> GetByIdAsync(Guid id)
         {
-            var albumTask = _dbContext.Albums
+            var album = await _dbContext.Albums
                 .Include(x => x.Pictures)
                 .FirstOrDefaultAsync(x => x.Id == id);
-
-            var pictures = _dbContext.Pictures.CountAsync(x => x.AlbumId == id);
-
-            await Task.WhenAll(albumTask, pictures);
-
-            var album = await albumTask;
-
-            album.NumberOfPictures = await pictures;
 
             return album;
         }
         public async Task<AlbumModel> CreateAsync(AlbumModel albumModel)
         {
-            var numberOfPictures = albumModel.Pictures.Count();
-            albumModel.NumberOfPictures = numberOfPictures;
-
             var createdAlbum = _dbContext.Albums.Add(albumModel);
 
             await _dbContext.SaveChangesAsync();
@@ -77,9 +73,6 @@ namespace SocialNetwork.Data.Repositories
         }
         public async Task<AlbumModel> EditAsync(AlbumModel albumModel)
         {
-            var numberOfPictures = albumModel.Pictures.Count();
-            albumModel.NumberOfPictures = numberOfPictures;
-
             var updatedAlbum = _dbContext.Albums.Update(albumModel);
 
             await _dbContext.SaveChangesAsync();
@@ -93,6 +86,15 @@ namespace SocialNetwork.Data.Repositories
             _dbContext.Albums.Remove(album);
 
             await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<AlbumModel> GetNameNotFromThisIdAsync(string albumName, Guid id)
+        {
+            var mobileAppModel = await _dbContext
+                .Albums
+                .FirstOrDefaultAsync(x => x.AlbumName == albumName && x.Id != id);
+
+            return mobileAppModel;
         }
     }
 }

@@ -79,7 +79,7 @@
                                     <div class="gallery-title mb-0">
                                         <a asp-action="Details" asp-route-id="@item?.Id">
                                             <h4>@item.AlbumName</h4>
-                                            <small>@item?.CreationDate.Date.ToLongDateString() - @item?.NumberOfPictures </small>
+                                            <small>@item?.CreationDate.Date.ToLongDateString() - @item?.Pictures.Count() </small>
                                         </a>
                                     </div>
                                 </div>

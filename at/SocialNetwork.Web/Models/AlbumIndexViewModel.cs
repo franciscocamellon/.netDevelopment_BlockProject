@@ -9,13 +9,10 @@ using SocialNetwork.Web.Controllers;
 
 namespace SocialNetwork.Web.Models
 {
-    public class AlbumIndexViewModel : IEnumerable
+    public class AlbumIndexViewModel
     {
-        public IEnumerable<AlbumModel> Albums { get; set; }
-        public IEnumerator GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
+        public string Search { get; set; }  
+        public IEnumerable<AlbumViewModel> Albums { get; set; }
     }
 }
     

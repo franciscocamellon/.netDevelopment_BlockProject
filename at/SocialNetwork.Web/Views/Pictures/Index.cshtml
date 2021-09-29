@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SocialNetwork.Domain.Entities.PictureModel>
+﻿@model PictureIndexViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -13,13 +13,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.UploadDate)
+                @Html.DisplayNameFor(model => model.Pictures.First().UploadDate)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UriImageAlbum)
+                @Html.DisplayNameFor(model => model.Pictures.First().UriImageAlbum)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.AlbumId)
+                @Html.DisplayNameFor(model => model.Pictures.First().AlbumId)
             </th>
             <th></th>
         </tr>
@@ -27,7 +27,7 @@
     <tbody>
     @if (Model != null)
     {
-        @foreach (var item in Model)
+        @foreach (var item in Model.Pictures)
         {
             <tr>
                 <td>

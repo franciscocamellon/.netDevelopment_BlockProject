@@ -11,44 +11,39 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Identity;
-using SocialNetwork.Domain.Interfaces.Repositories;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using SocialNetwork.Domain.Model.Interfaces.Repositories;
 using SocialNetwork.Web.Models;
+using SocialNetwork.Web.Services;
 
 namespace SocialNetwork.Web.Controllers
 {
     public class PicturesController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly UserManager<User> _userManager;
-        private readonly IProfileRepository _profileRepository;
-        private readonly IAlbumRepository _albumRepository;
-        private readonly IPictureRepository _pictureRepository;
+        private readonly IAlbumHttpService _albumHttpService;
+        private readonly IPictureHttpService _pictureHttpService;
 
-        public PicturesController(ApplicationDbContext context,
-                                        UserManager<User> userManager,
-                                        IProfileRepository profileRepository,
-                                        IAlbumRepository albumRepository,
-                                        IPictureRepository pictureRepository)
+        public PicturesController(IAlbumHttpService albumHttpService,
+                                  IPictureHttpService pictureHttpService)
         {
-            _context = context; 
-            _userManager = userManager;
-            _profileRepository = profileRepository;
-            _albumRepository = albumRepository;
-            _pictureRepository = pictureRepository;
+            _albumHttpService = albumHttpService;
+            _pictureHttpService = pictureHttpService;
         }
 
-        // GET: UserPictures
-        public async Task<IActionResult> Index()
+        // GET: Pictures
+        public async Task<IActionResult> Index(PictureIndexViewModel pictureIndexRequest)
         {
+            var pictureIndexViewModel = new PictureIndexViewModel
+            {
+                OrderAscendant = pictureIndexRequest.OrderAscendant,
+                Pictures = await _pictureHttpService.GetAllAsync(pictureIndexRequest.OrderAscendant)
+            };
 
-            var picture = await _pictureRepository.GetAllAsync();
-            
-            return View(picture);
+            return View(pictureIndexViewModel);
         }
 
-        // GET: UserPictures/Details/5 --> deletar
+        // GET: Pictures/Details/5 --> deletar
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)
@@ -56,50 +51,49 @@ namespace SocialNetwork.Web.Controllers
                 return NotFound();
             }
 
-            var userPicture = await _context.Pictures
-                .Include(u => u.Album)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (userPicture == null)
+            var pictureViewModel = await _pictureHttpService.GetByIdAsync(id.Value);
+
+            if (pictureViewModel == null)
             {
                 return NotFound();
             }
 
-            return View(userPicture);
+            return View(pictureViewModel);
         }
 
-        // GET: UserPictures/Create
+        // GET: Pictures/Create
         public async Task<IActionResult> Create(Guid id)
         {
-            await FillWithAlbumId(id);
+            await FillWithAlbumId(string.Empty , id);
 
             return View();
         }
 
-        // POST: UserPictures/Create
+        // POST: Pictures/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(IFormCollection form,
                                                 [FromServices] IHttpClientFactory clientFactory,
-                                                [Bind("Id,UploadDate,UriImageAlbum,AlbumId")] PictureModel picture)
+                                                [Bind("Id,UploadDate,UriImageAlbum,AlbumId")] PictureViewModel pictureViewModel)
         {
             var imageUriList = await GetImageUriFromApi(form, clientFactory);
 
             foreach (var imageUri in imageUriList)
             {
-                picture.Id = Guid.NewGuid();
-                picture.UploadDate = DateTime.Now;
-                picture.UriImageAlbum = imageUri;
+                pictureViewModel.Id = Guid.NewGuid();
+                pictureViewModel.UploadDate = DateTime.Now;
+                pictureViewModel.UriImageAlbum = imageUri;
 
-                await  _pictureRepository.CreateAsync(picture);
+                await  _pictureHttpService.CreateAsync(pictureViewModel);
             }
             
             return RedirectToAction(nameof(Index), "Albums");
             
         }
 
-        // GET: UserPictures/Delete/5
+        // GET: Pictures/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -107,15 +101,14 @@ namespace SocialNetwork.Web.Controllers
                 return NotFound();
             }
 
-            var userPicture = await _context.Pictures
-                .Include(u => u.Album)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (userPicture == null)
+            var pictureViewModel = await _pictureHttpService.GetByIdAsync(id.Value);
+
+            if (pictureViewModel == null)
             {
                 return NotFound();
             }
 
-            return View(userPicture);
+            return View(pictureViewModel);
         }
 
         // POST: UserPictures/Delete/5
@@ -123,17 +116,11 @@ namespace SocialNetwork.Web.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var userPicture = await _context.Pictures.FindAsync(id);
-            _context.Pictures.Remove(userPicture);
-            await _context.SaveChangesAsync();
+            await _pictureHttpService.DeleteAsync(id);
+
             return RedirectToAction(nameof(Index));
         }
-
-        private bool UserPictureExists(Guid id)
-        {
-            return _context.Pictures.Any(e => e.Id == id);
-        }
-
+        
         private async Task<IEnumerable<string>> GetImageUriFromApi(IFormCollection form,
                                                                    [FromServices] IHttpClientFactory clientFactory)
         {
@@ -148,6 +135,7 @@ namespace SocialNetwork.Web.Controllers
                 var response = await httpClient.PostAsync("api/image", content);
 
                 response.EnsureSuccessStatusCode();
+
                 var responseResult = await response.Content.ReadAsStringAsync();
                 var uriImage = JsonConvert.DeserializeObject<string[]>(responseResult);
 
@@ -155,7 +143,7 @@ namespace SocialNetwork.Web.Controllers
             }
         }
 
-        private StreamContent CreateFileContent(Stream stream, string fileName, string contentType)
+        private static StreamContent CreateFileContent(Stream stream, string fileName, string contentType)
         {
             var fileContent = new StreamContent(stream);
             fileContent.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data")
@@ -168,12 +156,12 @@ namespace SocialNetwork.Web.Controllers
             return fileContent;
         }
 
-        private async Task FillWithAlbumId(Guid? albumId = null)
+        private async Task FillWithAlbumId(string search, Guid? albumId = null)
         {
-            var albuns = await _albumRepository.GetAllAsync();
+            var albumViewModels = await _albumHttpService.GetAllAsync(search);
 
             ViewBag.Albuns = new SelectList(
-                albuns,
+                albumViewModels,
                 nameof(AlbumModel.Id),
                 nameof(AlbumModel.AlbumName),
                 albumId);

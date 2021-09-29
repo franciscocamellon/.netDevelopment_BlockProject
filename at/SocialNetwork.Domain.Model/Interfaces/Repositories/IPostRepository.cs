@@ -1,10 +1,8 @@
-﻿using SocialNetwork.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using SocialNetwork.Domain.Entities;
 
-namespace SocialNetwork.Domain.Interfaces.Repositories
+namespace SocialNetwork.Domain.Model.Interfaces.Repositories
 {
     public interface IPostRepository
     {

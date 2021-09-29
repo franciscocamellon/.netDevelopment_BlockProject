@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SocialNetwork.Domain.Entities;
-using SocialNetwork.Domain.Interfaces.Repositories;
+using SocialNetwork.Domain.Model.Interfaces.Repositories;
 
 namespace SocialNetwork.Data.Repositories
 {
@@ -19,27 +18,37 @@ namespace SocialNetwork.Data.Repositories
         }
         public async Task<IEnumerable<PictureModel>> GetPicturesByAlbumIdAsync(Guid albumId)
         {
-            var pictures = _dbContext.Pictures.Where(x => x.AlbumId == albumId);
-            return await pictures.ToListAsync();
+            var pictures = await _dbContext.Pictures
+                .Where(x => x.AlbumId == albumId)
+                .ToListAsync();
+
+            return pictures;
         }
 
-        public async Task<IEnumerable<PictureModel>> GetAllAsync()
+        public async Task<IEnumerable<PictureModel>> GetAllAsync(bool orderAscendant = true)
         {
-            var pictures = _dbContext.Pictures.OrderBy(x => x.UploadDate);
+            var pictures = orderAscendant
+                ? _dbContext.Pictures.OrderBy(x => x.UploadDate)
+                : _dbContext.Pictures.OrderByDescending(x => x.UploadDate);
 
-            return await pictures.ToListAsync();
+            return await pictures 
+                .Include(x => x.Album)
+                .ToListAsync();
         }
 
         public async Task<PictureModel> GetByIdAsync(Guid id)
         {
-            var picture = await _dbContext.Pictures.FirstOrDefaultAsync(x => x.Id == id);
+            var picture = await _dbContext.Pictures
+                .Include(x => x.Album)
+                .FirstOrDefaultAsync(x => x.Id == id);
 
             return picture;
         }
 
-        public async Task<PictureModel> CreateAsync(PictureModel picture)
+        public async Task<PictureModel> CreateAsync(PictureModel pictureModel)
         {
-            var createdPicture = _dbContext.Pictures.Add(picture);
+            var createdPicture = _dbContext.Pictures.Add(pictureModel);
+
             await _dbContext.SaveChangesAsync();
 
             return createdPicture.Entity;

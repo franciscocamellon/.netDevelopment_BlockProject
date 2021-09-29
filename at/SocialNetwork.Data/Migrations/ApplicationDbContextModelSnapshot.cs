@@ -166,9 +166,6 @@ namespace SocialNetwork.Data.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("NumberOfPictures")
-                        .HasColumnType("int");
-
                     b.Property<int>("ProfileId")
                         .HasColumnType("int");
 

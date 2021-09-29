@@ -1,9 +1,11 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Crosscutting.IoC;
+using Newtonsoft.Json;
 using SocialNetwork.Domain.Interfaces.Infrastructure;
 using SocialNetwork.Infrastructure.Services.Blob;
 
@@ -21,6 +23,11 @@ namespace SocialNetwork.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services
+                .AddControllers()
+                .AddNewtonsoftJson(x => 
+                    x.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
+
             services.AddScoped<IBlobService, BlobService>(provider =>
                         new BlobService(Configuration.GetValue<string>("StorageAccount")));
 
@@ -30,6 +37,8 @@ namespace SocialNetwork.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SocialNetwork.Api", Version = "v1" });
             });
+
+            services.RegisterServices(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

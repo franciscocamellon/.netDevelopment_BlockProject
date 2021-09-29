@@ -3,13 +3,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using SocialNetwork.Domain.Entities;
-using SocialNetwork.Domain.Interfaces.Repositories;
 using System;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using SocialNetwork.Domain.Model.Interfaces.Repositories;
 
 namespace SocialNetwork.Web.Controllers
 {

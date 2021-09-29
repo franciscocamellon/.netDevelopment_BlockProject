@@ -1,14 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using SocialNetwork.Data;
-using SocialNetwork.Data.Repositories;
 using SocialNetwork.Domain.Entities;
-using SocialNetwork.Domain.Interfaces.Repositories;
 using System;
+using Crosscutting.IoC;
+using SocialNetwork.Web.Services;
+using SocialNetwork.Web.Services.Implementations;
 
 namespace SocialNetwork.Web
 {
@@ -24,15 +23,6 @@ namespace SocialNetwork.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddScoped<IPostRepository, PostRepository>();
-            services.AddScoped<IProfileRepository, ProfileRepository>();
-            services.AddScoped<IAlbumRepository, AlbumRepository>();
-            services.AddScoped<IPictureRepository, PictureRepository>();
-
             services.AddDefaultIdentity<User>(options => {
                 options.SignIn.RequireConfirmedAccount = true;
                 options.Password.RequireDigit = false;
@@ -45,9 +35,19 @@ namespace SocialNetwork.Web
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            var profileImageApiAddress = Configuration.GetValue<string>("ApiAddresses:Profile");
+            var albumApiAddress = Configuration.GetValue<string>("ApiAddresses:Album");
+            var pictureApiAddress = Configuration.GetValue<string>("ApiAddresses:Picture");
+
             services.AddHttpClient("", client => {
-                client.BaseAddress = new Uri(Configuration["BaseUrlApi"]);
+                client.BaseAddress = new Uri(profileImageApiAddress);
             });
+            services.AddHttpClient<IAlbumHttpService, AlbumHttpService>(x => 
+                x.BaseAddress = new Uri(albumApiAddress));
+            services.AddHttpClient<IPictureHttpService, PictureHttpService>(x => 
+                x.BaseAddress = new Uri(pictureApiAddress));
+
+            services.RegisterServices(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

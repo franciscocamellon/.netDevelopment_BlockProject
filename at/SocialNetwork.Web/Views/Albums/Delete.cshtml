@@ -1,4 +1,4 @@
-﻿@model SocialNetwork.Domain.Entities.AlbumModel
+﻿@model AlbumViewModel
 
 @{
     Layout = null;
@@ -31,12 +31,6 @@
                             @Html.DisplayNameFor(model => model.AlbumName)
                             <div class="col-md-9">
                                 @Html.DisplayFor(model => model.AlbumName)
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            @Html.DisplayNameFor(model => model.NumberOfPictures)
-                            <div class="col-md-9">
-                                @Html.DisplayFor(model => model.NumberOfPictures)
                             </div>
                         </div>
                     </div>

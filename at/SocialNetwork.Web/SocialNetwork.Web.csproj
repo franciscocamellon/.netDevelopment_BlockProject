@@ -33,8 +33,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Crosscutting.IoC\Crosscutting.IoC.csproj" />
     <ProjectReference Include="..\SocialNetwork.Data\SocialNetwork.Data.csproj" />
-    <ProjectReference Include="..\SocialNetwork.Domain\SocialNetwork.Domain.csproj" />
+    <ProjectReference Include="..\SocialNetwork.Domain.Model\SocialNetwork.Domain.Model.csproj" />
   </ItemGroup>
 
 </Project>

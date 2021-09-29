@@ -1,7 +1,7 @@
-﻿using SocialNetwork.Domain.Entities;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using SocialNetwork.Domain.Entities;
 
-namespace SocialNetwork.Domain.Interfaces.Repositories
+namespace SocialNetwork.Domain.Model.Interfaces.Repositories
 {
     public interface IProfileRepository
     {
