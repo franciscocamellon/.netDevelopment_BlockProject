@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SocialNetwork.Data;
-using SocialNetwork.Domain.Entities;
 using System;
 using Crosscutting.IoC;
+using SocialNetwork.Domain.Model.Entities;
 using SocialNetwork.Web.Services;
 using SocialNetwork.Web.Services.Implementations;
 

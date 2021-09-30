@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
-using SocialNetwork.Domain.Entities;
+using SocialNetwork.Domain.Model.Entities;
 
 namespace SocialNetwork.Web.Areas.Identity.Pages.Account
 {

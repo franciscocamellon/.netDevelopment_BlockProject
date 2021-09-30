@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using SocialNetwork.Domain.Entities;
+using SocialNetwork.Domain.Model.Entities;
 
 namespace SocialNetwork.Web.Areas.Identity.Pages.Account
 {

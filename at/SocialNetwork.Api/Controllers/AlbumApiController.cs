@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using SocialNetwork.Domain.Entities;
+using SocialNetwork.Domain.Model.Entities;
 using SocialNetwork.Domain.Model.Interfaces.Services;
 
 namespace SocialNetwork.Api.Controllers

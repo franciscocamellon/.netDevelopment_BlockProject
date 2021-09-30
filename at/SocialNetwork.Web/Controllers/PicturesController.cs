@@ -4,12 +4,12 @@ using System.Configuration;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using SocialNetwork.Domain.Entities;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using SocialNetwork.Domain.Model.Entities;
 using SocialNetwork.Web.Models;
 using SocialNetwork.Web.Services;
 

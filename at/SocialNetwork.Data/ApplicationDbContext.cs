@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using SocialNetwork.Domain.Entities;
+using SocialNetwork.Domain.Model.Entities;
 
 namespace SocialNetwork.Data
 {
@@ -15,6 +10,7 @@ namespace SocialNetwork.Data
         public DbSet<Profile> Profiles { get; set; }        
         public DbSet<AlbumModel> Albums { get; set; }
         public DbSet<PictureModel> Pictures { get; set; }
+        public DbSet<AppModel> Apps { get; set; }   
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

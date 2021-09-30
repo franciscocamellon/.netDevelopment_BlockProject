@@ -2,11 +2,10 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Crosscutting.IoC;
 using Newtonsoft.Json;
-using SocialNetwork.Domain.Interfaces.Infrastructure;
+using SocialNetwork.Domain.Model.Interfaces.Infrastructure;
 using SocialNetwork.Infrastructure.Services.Blob;
 
 namespace SocialNetwork.Api

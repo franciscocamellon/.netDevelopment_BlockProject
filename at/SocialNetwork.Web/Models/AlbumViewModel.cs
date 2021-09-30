@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using SocialNetwork.Domain.Entities;
+using SocialNetwork.Domain.Model.Entities;
 
 namespace SocialNetwork.Web.Models
 {

@@ -1,8 +1,8 @@
 ﻿using Azure.Storage.Blobs;
-using SocialNetwork.Domain.Interfaces.Infrastructure;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using SocialNetwork.Domain.Model.Interfaces.Infrastructure;
 
 namespace SocialNetwork.Infrastructure.Services.Blob
 {

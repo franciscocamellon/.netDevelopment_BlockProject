@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using SocialNetwork.Domain.Entities;
+using SocialNetwork.Domain.Model.Entities;
 using SocialNetwork.Domain.Model.Interfaces.Repositories;
 using SocialNetwork.Domain.Model.Interfaces.Services;
 

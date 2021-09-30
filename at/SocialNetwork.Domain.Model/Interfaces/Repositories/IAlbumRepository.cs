@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using SocialNetwork.Domain.Entities;
+using SocialNetwork.Domain.Model.Entities;
 
 namespace SocialNetwork.Domain.Model.Interfaces.Repositories
 {
