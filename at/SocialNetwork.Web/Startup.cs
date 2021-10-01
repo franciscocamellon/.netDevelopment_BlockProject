@@ -80,7 +80,7 @@ namespace SocialNetwork.Web
                 endpoints.MapAreaControllerRoute(
                     name: "Identity",
                     areaName: "Identity",
-                    pattern: "Identity/{controller=Account}/{action=Index}");
+                    pattern: "Identity/{controller=Account}/{action=Login}");
 
                 endpoints.MapControllerRoute(
                     name: "default",
