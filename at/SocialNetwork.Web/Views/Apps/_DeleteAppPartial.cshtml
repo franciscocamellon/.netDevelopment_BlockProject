@@ -1,0 +1,21 @@
+﻿@model AppViewModel
+
+<div class="modal-body p-4">
+    <form asp-action="Delete">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="ProfileId" />
+
+        <div class="form-group">
+            <h6>Deseja realmente deletar o aplicativo  @Html.DisplayFor(model => model.AppName)?</h6>
+        </div>
+        <div><br /></div>
+        <div class="modal-footer">
+            <input type="submit" value="Delete" class="btn btn-danger btn-block" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

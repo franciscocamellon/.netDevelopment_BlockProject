@@ -1,22 +1,21 @@
 ﻿@model AlbumViewModel
 
 
-<div class="modal-body">
+<div class="modal-body p-4">
     <form asp-action="Delete">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <input type="hidden" asp-for="Id" />
         <input type="hidden" asp-for="ProfileId" />
         <input type="hidden" asp-for="CreationDate" />
         <input type="hidden" asp-for="AlbumName" />
-        
+
         <div class="form-group">
-            <p>Deseja deletar o álbum  @Html.DisplayFor(model => model.AlbumName) e suas fotos?</p>
+            <h6>Deseja deletar o álbum  @Html.DisplayFor(model => model.AlbumName) e suas fotos?</h6>
         </div>
 
-        <div><br/></div>
-        <div class="form-group">
-            <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
-            <input type="submit" value="Deletar" class="btn btn-danger" />
+        <div><br /></div>
+        <div class="modal-footer">
+            <input type="submit" value="Delete" class="btn btn-danger btn-block" />
         </div>
     </form>
 </div>

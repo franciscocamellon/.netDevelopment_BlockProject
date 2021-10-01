@@ -4,24 +4,49 @@
     ViewData["Title"] = "Upload pictures";
 }
 
-<h1>Create</h1>
+<div class="container">
+    <!-- BEGIN row -->
+    <div class="row justify-content-center">
+        <!-- BEGIN col-10 -->
+        <div class="col-xl-10">
+            <!-- BEGIN row -->
+            <div class="row">
+                <!-- BEGIN col-9 -->
+                <div class="col-xl-9">
+                    <div class="card">
+                        <div class="tab-content p-4">
+                            <div class="tab-pane fade show active" id="allTab">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div>
+                                        <h1 class="page-header mb-0">Carregar fotos</h1>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <form id="fileupload" asp-action="Create" method="POST" enctype="multipart/form-data">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <input type="hidden" asp-for="AlbumId" />
 
-    <h4>Picture</h4>
-    <hr />
-    <div class="row">
-        <div class="col-md-4">
-            <form id="fileupload" asp-action="Create" method="POST" enctype="multipart/form-data">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="AlbumId" />
-
-                <div class="form-group">
-                    <label asp-for="UriImageAlbum" class="control-label"></label>
-                    <input type="file" asp-for="UriImageAlbum" class="form-control" multiple required accept=".jpg,.png" />
-                    <span asp-validation-for="UriImageAlbum" class="text-danger"></span>
+                                        <div class="form-group">
+                                            <label asp-for="UriImageAlbum" class="control-label mb-2"></label>
+                                            <input type="file" asp-for="UriImageAlbum" class="form-control mb-3" multiple required accept=".jpg,.png" />
+                                            <span asp-validation-for="UriImageAlbum" class="text-danger"></span>
+                                        </div>
+                                        <div><br /></div>
+                                        <div class="modal-footer">
+                                            <input type="submit" value="Create" class="btn btn-primary btn-block" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="submit" value="Create" class="btn btn-primary" />
-                </div>
-            </form>
+            </div>
         </div>
     </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

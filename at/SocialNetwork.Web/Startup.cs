@@ -6,6 +6,8 @@ using SocialNetwork.Data;
 using System;
 using Crosscutting.IoC;
 using SocialNetwork.Domain.Model.Entities;
+using SocialNetwork.Domain.Model.Interfaces.Services;
+using SocialNetwork.Domain.Services.Services;
 using SocialNetwork.Web.Services;
 using SocialNetwork.Web.Services.Implementations;
 
@@ -35,7 +37,7 @@ namespace SocialNetwork.Web
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            var profileImageApiAddress = Configuration.GetValue<string>("ApiAddresses:Profile");
+            var appsApiAddress = Configuration.GetValue<string>("ApiAddresses:Apps");
             var albumApiAddress = Configuration.GetValue<string>("ApiAddresses:Album");
             var pictureApiAddress = Configuration.GetValue<string>("ApiAddresses:Picture");
 
@@ -46,6 +48,8 @@ namespace SocialNetwork.Web
                 x.BaseAddress = new Uri(albumApiAddress));
             services.AddHttpClient<IPictureHttpService, PictureHttpService>(x => 
                 x.BaseAddress = new Uri(pictureApiAddress));
+            services.AddHttpClient<IAppHttpService, AppHttpService>(x => 
+                x.BaseAddress = new Uri(appsApiAddress));
 
             services.RegisterServices(Configuration);
         }

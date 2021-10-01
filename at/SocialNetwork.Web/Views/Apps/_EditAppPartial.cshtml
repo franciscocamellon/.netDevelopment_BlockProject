@@ -1,0 +1,55 @@
+﻿@model AppViewModel
+
+<div class="modal-body p-4">
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="ProfileId" />
+
+        <div class="form-group">
+            <label asp-for="AppName" class="control-label mb-2"></label>
+            <input asp-for="AppName" class="form-control mb-3" />
+            <span asp-validation-for="AppName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Platform" class="form-label mb-2"><span class="text-danger">*</span></label>
+            <select class="form-control mb-3" id="platformInput" asp-for="Platform">
+                <option value=""></option>
+                <option value="Android">Android</option>
+                <option value="iOS">iOS</option>
+            </select>
+        </div>
+
+        <div class="form-group form-check align-middle">
+            <label class="form-check-label mb-3">
+                <input class="form-check-input" asp-for="PublishedStatus" /> @Html.DisplayNameFor(model => model.PublishedStatus)
+            </label>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="PublishedDate" class="control-label mb-2"></label>
+                    <input asp-for="PublishedDate" class="form-control mb-3" />
+                    <span asp-validation-for="PublishedDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="ModificationDate" class="control-label mb-2"></label>
+                    <input asp-for="ModificationDate" class="form-control mb-3" />
+                    <span asp-validation-for="ModificationDate" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div><br /></div>
+        <div class="modal-footer">
+            <input type="submit" value="Save" class="btn btn-primary btn-block" />
+        </div>
+    </form>
+       
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

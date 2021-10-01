@@ -16,7 +16,7 @@ namespace SocialNetwork.Data.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.8")
+                .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -154,7 +154,7 @@ namespace SocialNetwork.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("SocialNetwork.Domain.Entities.AlbumModel", b =>
+            modelBuilder.Entity("SocialNetwork.Domain.Model.Entities.AlbumModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -176,7 +176,38 @@ namespace SocialNetwork.Data.Migrations
                     b.ToTable("Albums");
                 });
 
-            modelBuilder.Entity("SocialNetwork.Domain.Entities.PictureModel", b =>
+            modelBuilder.Entity("SocialNetwork.Domain.Model.Entities.AppModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AppName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModificationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Platform")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("PublishedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("PublishedStatus")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProfileId");
+
+                    b.ToTable("Apps");
+                });
+
+            modelBuilder.Entity("SocialNetwork.Domain.Model.Entities.PictureModel", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -198,7 +229,7 @@ namespace SocialNetwork.Data.Migrations
                     b.ToTable("Pictures");
                 });
 
-            modelBuilder.Entity("SocialNetwork.Domain.Entities.Post", b =>
+            modelBuilder.Entity("SocialNetwork.Domain.Model.Entities.Post", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -221,7 +252,7 @@ namespace SocialNetwork.Data.Migrations
                     b.ToTable("Posts");
                 });
 
-            modelBuilder.Entity("SocialNetwork.Domain.Entities.Profile", b =>
+            modelBuilder.Entity("SocialNetwork.Domain.Model.Entities.Profile", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -260,7 +291,7 @@ namespace SocialNetwork.Data.Migrations
                     b.ToTable("Profiles");
                 });
 
-            modelBuilder.Entity("SocialNetwork.Domain.Entities.User", b =>
+            modelBuilder.Entity("SocialNetwork.Domain.Model.Entities.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -336,7 +367,7 @@ namespace SocialNetwork.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("SocialNetwork.Domain.Entities.User", null)
+                    b.HasOne("SocialNetwork.Domain.Model.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -345,7 +376,7 @@ namespace SocialNetwork.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("SocialNetwork.Domain.Entities.User", null)
+                    b.HasOne("SocialNetwork.Domain.Model.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -360,7 +391,7 @@ namespace SocialNetwork.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("SocialNetwork.Domain.Entities.User", null)
+                    b.HasOne("SocialNetwork.Domain.Model.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -369,16 +400,16 @@ namespace SocialNetwork.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("SocialNetwork.Domain.Entities.User", null)
+                    b.HasOne("SocialNetwork.Domain.Model.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("SocialNetwork.Domain.Entities.AlbumModel", b =>
+            modelBuilder.Entity("SocialNetwork.Domain.Model.Entities.AlbumModel", b =>
                 {
-                    b.HasOne("SocialNetwork.Domain.Entities.Profile", "Profile")
+                    b.HasOne("SocialNetwork.Domain.Model.Entities.Profile", "Profile")
                         .WithMany("Albums")
                         .HasForeignKey("ProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -387,9 +418,20 @@ namespace SocialNetwork.Data.Migrations
                     b.Navigation("Profile");
                 });
 
-            modelBuilder.Entity("SocialNetwork.Domain.Entities.PictureModel", b =>
+            modelBuilder.Entity("SocialNetwork.Domain.Model.Entities.AppModel", b =>
                 {
-                    b.HasOne("SocialNetwork.Domain.Entities.AlbumModel", "Album")
+                    b.HasOne("SocialNetwork.Domain.Model.Entities.Profile", "Profile")
+                        .WithMany("Apps")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Profile");
+                });
+
+            modelBuilder.Entity("SocialNetwork.Domain.Model.Entities.PictureModel", b =>
+                {
+                    b.HasOne("SocialNetwork.Domain.Model.Entities.AlbumModel", "Album")
                         .WithMany("Pictures")
                         .HasForeignKey("AlbumId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -398,23 +440,25 @@ namespace SocialNetwork.Data.Migrations
                     b.Navigation("Album");
                 });
 
-            modelBuilder.Entity("SocialNetwork.Domain.Entities.Post", b =>
+            modelBuilder.Entity("SocialNetwork.Domain.Model.Entities.Post", b =>
                 {
-                    b.HasOne("SocialNetwork.Domain.Entities.Profile", "Profile")
+                    b.HasOne("SocialNetwork.Domain.Model.Entities.Profile", "Profile")
                         .WithMany()
                         .HasForeignKey("ProfileId");
 
                     b.Navigation("Profile");
                 });
 
-            modelBuilder.Entity("SocialNetwork.Domain.Entities.AlbumModel", b =>
+            modelBuilder.Entity("SocialNetwork.Domain.Model.Entities.AlbumModel", b =>
                 {
                     b.Navigation("Pictures");
                 });
 
-            modelBuilder.Entity("SocialNetwork.Domain.Entities.Profile", b =>
+            modelBuilder.Entity("SocialNetwork.Domain.Model.Entities.Profile", b =>
                 {
                     b.Navigation("Albums");
+
+                    b.Navigation("Apps");
                 });
 #pragma warning restore 612, 618
         }

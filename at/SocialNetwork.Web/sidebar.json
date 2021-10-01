@@ -19,8 +19,8 @@
       "text": "Fotos"
     },
     {
-      "controller": "UserApps",
-      "action": "Edit",
+      "controller": "Apps",
+      "action": "Index",
       "area": "",
       "icon": "fa fa-mobile-alt",
       "text": "Aplicativos"

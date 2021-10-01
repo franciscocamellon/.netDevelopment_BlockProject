@@ -6,7 +6,6 @@ using SocialNetwork.Data.Repositories;
 using SocialNetwork.Domain.Model.Interfaces.Repositories;
 using SocialNetwork.Domain.Model.Interfaces.Services;
 using SocialNetwork.Domain.Services.Services;
-using System.Configuration;
 
 namespace Crosscutting.IoC
 {
@@ -26,6 +25,8 @@ namespace Crosscutting.IoC
             services.AddTransient<IPictureRepository, PictureRepository>();
             services.AddTransient<IPictureService, PictureServices>();
             services.AddTransient<IAlbumService, AlbumServices>();
+            services.AddTransient<IAppServices, AppServices>();
+            services.AddTransient<IAppsRepository, AppsRepository>();
 
             
         }
