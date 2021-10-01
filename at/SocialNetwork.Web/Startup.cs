@@ -35,6 +35,15 @@ namespace SocialNetwork.Web
             }).AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddControllersWithViews();
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    IConfigurationSection googleAuthNSection =
+                        Configuration.GetSection("Authentication:Google");
+
+                    options.ClientId = googleAuthNSection["ClientId"];
+                    options.ClientSecret = googleAuthNSection["ClientSecret"];
+                });
             services.AddRazorPages();
 
             var appsApiAddress = Configuration.GetValue<string>("ApiAddresses:Apps");
@@ -75,7 +84,7 @@ namespace SocialNetwork.Web
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Feed}/{action=Index}");
+                    pattern: "{controller=Profile}/{action=Edit}");
                 endpoints.MapRazorPages();
             });
         }
