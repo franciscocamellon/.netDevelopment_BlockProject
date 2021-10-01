@@ -7,6 +7,7 @@ using SocialNetwork.Domain.Model.Interfaces.Repositories;
 
 namespace SocialNetwork.Web.Controllers
 {
+    [Authorize]
     public class FeedController : Controller
     {
         private readonly UserManager<User> _userManager;

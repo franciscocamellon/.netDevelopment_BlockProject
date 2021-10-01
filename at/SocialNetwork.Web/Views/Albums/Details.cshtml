@@ -144,17 +144,30 @@
                 <ul class="gallery-image-list">
                     @foreach (var picture in Model.Pictures)
                     {
-                        <li>
-                            <a href="@Html.DisplayFor(modelPicture => picture.UriImageAlbum)" itemprop="contentUrl" data-size="752x502">
-                                <img src="@Html.DisplayFor(modelPicture => picture.UriImageAlbum)" itemprop="thumbnail" alt="Wedding Image 1" class="img-portrait" />
-                            </a>
-                        </li>
+                    <li>
+                        <a href="@Html.DisplayFor(modelPicture => picture.UriImageAlbum)" itemprop="contentUrl" data-size="752x502">
+                            <img src="@Html.DisplayFor(modelPicture => picture.UriImageAlbum)" itemprop="thumbnail" alt="Wedding Image 1" class="img-portrait" />
+                        </a>
+                    </li>
                     }
                 </ul>
             </div>
             <!-- END gallery-image -->
         </div>
         <!-- END gallery -->
+    </div>
+
+    <div class="d-flex align-items-center">
+        <div class="ms-auto">
+            <div class="ms-auto btn-group">
+                
+            </div>
+        </div>
+    </div>
+    <div class="d-flex align-items-center">
+        <div class="ms-auto btn-group">
+            <a asp-action="Index" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-left"></i> Voltar</a>
+        </div>
     </div>
 </div>
 <!-- END #general -->

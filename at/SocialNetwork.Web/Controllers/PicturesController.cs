@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using SocialNetwork.Domain.Model.Entities;
@@ -14,6 +15,7 @@ using SocialNetwork.Web.Services;
 
 namespace SocialNetwork.Web.Controllers
 {
+    [Authorize]
     public class PicturesController : Controller
     {
         private readonly IAlbumHttpService _albumHttpService;
@@ -90,7 +92,7 @@ namespace SocialNetwork.Web.Controllers
                 await  _pictureHttpService.CreateAsync(pictureViewModel);
             }
             
-            return RedirectToAction(nameof(Index), "Albums");
+            return RedirectToAction(nameof(Details), "Albums", new {id = pictureViewModel.AlbumId});
             
         }
 

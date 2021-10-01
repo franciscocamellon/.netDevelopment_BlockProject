@@ -8,11 +8,13 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using SocialNetwork.Domain.Model.Entities;
 using SocialNetwork.Domain.Model.Interfaces.Repositories;
 
 namespace SocialNetwork.Web.Controllers
 {
+    [Authorize]
     public class ProfileController : Controller
     {
         private readonly UserManager<User> _userManager;

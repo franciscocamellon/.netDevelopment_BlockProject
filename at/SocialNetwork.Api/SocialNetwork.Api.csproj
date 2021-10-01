@@ -21,4 +21,9 @@
     <ProjectReference Include="..\SocialNetwork.Infrastructure.Services\SocialNetwork.Infrastructure.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+    <Folder Include="Properties\ServiceDependencies\" />
+  </ItemGroup>
+
 </Project>

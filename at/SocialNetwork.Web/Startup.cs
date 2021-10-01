@@ -27,11 +27,11 @@ namespace SocialNetwork.Web
         {
             services.AddDefaultIdentity<User>(options => {
                 options.SignIn.RequireConfirmedAccount = true;
-                options.Password.RequireDigit = false;
-                options.Password.RequiredLength = 3;
-                options.Password.RequireLowercase = false;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 8;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
             }).AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddControllersWithViews();
@@ -84,7 +84,7 @@ namespace SocialNetwork.Web
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Profile}/{action=Edit}");
+                    pattern: "{controller=Feed}/{action=Index}");
                 endpoints.MapRazorPages();
             });
         }

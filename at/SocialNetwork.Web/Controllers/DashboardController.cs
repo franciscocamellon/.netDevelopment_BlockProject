@@ -6,6 +6,7 @@ using System.Diagnostics;
 
 namespace SocialNetwork.Web.Controllers
 {
+    [Authorize]
     public class DashboardController : Controller
     {
         private readonly ILogger<DashboardController> _logger;
