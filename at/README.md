@@ -51,7 +51,8 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 * [Diagrama de Classe](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagrama-de-classe)
 * [Diagrama de Componente](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagrama-de-componente)
 ### [Relatório](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagramas-uml-1)
-* [Modelo de desenvolvimento em cascata]
+* [Modelo de desenvolvimento em cascata](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagramas-uml-1)
+* [Etapas do modelo em cascata](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagramas-uml-1)
 
 <p><br></p>
 
@@ -317,3 +318,13 @@ O modelo de desenvolvimento de software em cascata é mais antigo e estabelecido
 * manutenção.
 
 É conhecido por ter uma estrutura mais engessada, com poucas aberturas para mudanças no meio do caminho.
+
+* ## Etapas do modelo em cascata
+
+* Levantamento de requisitos
+    * etapa na qual levanta-se os requisitos a partir da interação com o usuário para entender suas demandas e funcionalidades do sistema. Aqui observa-se o objetivo do sistema
+(classificados de emprego), a definição do seu escopo (gerencial) e suas limitações, que neste caso pelo fato do usuário ser o próprio desenvolvedor não foi dado a devida atenção.  
+* Análilse e projeto
+    * aqui foram realizados o desenvolvimento de diagramas de classe e componentes a fim de aumentar o detalhamento e fazer um desenho inicial da solução. Foram feitos também bancos de dados com o objetivo de analisar o relacionamento entre entidades.
+* Implantação
+    * foram implementados alguns dos requisitos de sistema desenvolvidos
