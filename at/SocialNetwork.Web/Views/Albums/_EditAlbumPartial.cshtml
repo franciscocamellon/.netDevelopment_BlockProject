@@ -1,0 +1,26 @@
+﻿@model AlbumViewModel
+
+
+<div class="modal-body p-4">
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="ProfileId" />
+        <input type="hidden" asp-for="CreationDate" />
+
+        <div class="form-group">
+            <label asp-for="AlbumName" class="control-label mb-2"></label>
+            <input asp-for="AlbumName" class="form-control mb-3" />
+            <span asp-validation-for="AlbumName" class="text-danger"></span>
+        </div>
+
+        <div><br /></div>
+        <div class="modal-footer">
+            <input type="submit" value="Salvar" class="btn btn-primary btn-block" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

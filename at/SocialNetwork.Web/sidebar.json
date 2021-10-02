@@ -1,0 +1,51 @@
+{
+  "sidebarMenu": [
+    {
+      "text": "Home",
+      "is_header": true
+    },
+
+    {
+      "controller": "Feed",
+      "action": "Index",
+      "icon": "fa fa-list-alt",
+      "text": "Feed"
+    },
+    {
+      "controller": "Albums",
+      "action": "Index",
+      "area": "",
+      "icon": "fas fa-camera",
+      "text": "Fotos"
+    },
+    {
+      "controller": "Apps",
+      "action": "Index",
+      "area": "",
+      "icon": "fa fa-mobile-alt",
+      "text": "Aplicativos"
+    },
+
+    {
+      "is_divider": true
+    },
+    {
+      "text": "Meus dados",
+      "is_header": true
+    },
+    {
+      "controller": "Profile",
+      "action": "Edit",
+      "area": "",
+      "icon": "fa fa-user-circle",
+      "text": "Perfil"
+    },
+    {
+      "controller": "Account",
+      "action": "Manage",
+      "area": "Identity",
+      "icon": "fa fa-fingerprint",
+      "text": "Segurança"
+    }
+  ]
+}

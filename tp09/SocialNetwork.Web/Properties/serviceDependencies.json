@@ -2,7 +2,11 @@
   "dependencies": {
     "mssql1": {
       "type": "mssql",
-      "connectionId": "ConnectionStrings:DefaultConnection"
+      "connectionId": "ConnectionStrings:WebApplicationDbContext"
+    },
+    "storage1": {
+      "type": "storage",
+      "connectionId": "StorageAccountConnectionString"
     }
   }
 }

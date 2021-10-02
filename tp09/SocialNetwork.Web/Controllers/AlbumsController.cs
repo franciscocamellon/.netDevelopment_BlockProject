@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using SocialNetwork.Data;
 using SocialNetwork.Domain.Entities;
 using SocialNetwork.Domain.Interfaces.Repositories;
+using SocialNetwork.Web.Models;
 
 namespace SocialNetwork.Web.Controllers
 {
@@ -32,8 +33,12 @@ namespace SocialNetwork.Web.Controllers
         }
 
         // GET: Albums
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(AlbumIndexViewModel albumIndexViewRequest)
         {
+            var albumIndexViewModel = new AlbumIndexViewModel
+            {
+                Albums = await _albumRepository.GetAllAsync()
+            };
             var currentUserId = _userManager.GetUserId(User);
             var profile = await _profileRepository.GetProfileByUserIdAsync(currentUserId);
             
@@ -41,7 +46,7 @@ namespace SocialNetwork.Web.Controllers
             var albumsByProfile = await _albumRepository.GetAlbumsByProfileIdAsync(profile.Id);
             //var albumsByProfile = profile.Albums;
 
-            return View(albumsByProfile);
+            return View(albumIndexViewModel);
         }
 
         // GET: Albums/Details/5

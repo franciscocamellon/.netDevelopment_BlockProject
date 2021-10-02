@@ -1,0 +1,25 @@
+﻿@using System.Linq
+@model AlbumViewModel
+
+
+<div class="modal-body">
+    <form id="fileupload" asp-controller="Pictures" asp-action="Create" method="POST" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+        <div class="form-group">
+            <label asp-for="Pictures.First().UriImageAlbum" class="control-label"></label>
+            <input type="file" asp-for="Pictures.First().UriImageAlbum" class="form-control" multiple required accept=".jpg,.png" />
+            <span asp-validation-for="Pictures.First().UriImageAlbum" class="text-danger"></span>
+        </div>
+
+        <div><br/></div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-bs-dismiss="modal">Close</button>
+            <input type="submit" value="Save changes" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,126 @@
+﻿@model AppViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+@section Scripts {
+    <script src="~/lib/highlight.js/highlight.min.js"></script>
+    <script src="~/js/demo/highlightjs.demo.js"></script>
+    <script src="~/js/demo/sidebar-scrollspy.demo.js"></script>
+}
+
+@section OutterAppContainerContent  {
+    <!-- BEGIN #modalEdit -->
+    <div class="modal fade" id="modalEditApp">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Editar aplicativo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                @{
+                    await Html.RenderPartialAsync("_EditAppPartial");
+                }
+
+            </div>
+        </div>
+    </div>
+    <!-- END #modalEdit -->
+    <!-- BEGIN #modalDelete -->
+    <div class="modal fade" id="modalDeleteApp">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Deletar aplicativo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                @{
+                    await Html.RenderPartialAsync("_DeleteAppPartial");
+                }
+
+            </div>
+        </div>
+    </div>
+    <!-- END #modalDelete -->
+}
+
+<div class="card">
+    <div class="tab-content p-4">
+        <div class="tab-pane fade show active" id="allTab">
+            <div class="d-flex align-items-center mb-3">
+                <div>
+                    <h1 class="page-header mb-0">@Model.AppName</h1>
+                </div>
+
+                <div class="ms-auto">
+                    <div class="ms-auto btn-group">
+                        <a class="btn" href="#modalEditApp" data-bs-toggle="modal">
+                            <i class="fas fa-pencil-alt"></i>
+                        </a>
+                        <a class="btn" href="#modalDeleteApp" data-bs-toggle="modal">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BEGIN table -->
+            <div class="table-responsive">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th class="pt-0 pb-2"></th>
+                            <th class="pt-0 pb-2">@Html.DisplayNameFor(model => model.AppName)</th>
+                            <th class="pt-0 pb-2">@Html.DisplayNameFor(model => model.Platform)</th>
+                            <th class="pt-0 pb-2">@Html.DisplayNameFor(model => model.PublishedStatus)</th>
+                            <th class="pt-0 pb-2">@Html.DisplayNameFor(model => model.PublishedDate)</th>
+                            <th class="pt-0 pb-2">@Html.DisplayNameFor(model => model.ModificationDate)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="width-10 align-middle">
+                                <div class="form-check">
+                                    @*<input type="checkbox" class="form-check-input" id="product1">
+                                <label class="form-check-label" for="product1"></label>*@
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <div class="width-60 height-60 bg-gray-100 d-flex align-items-center justify-content-center">
+                                        @if (Model.Platform == "Android")
+                                        {
+                                            <img class="mw-100 mh-100" src="/img/apptype/android.png" />
+                                        }
+                                        else
+                                        {
+                                            <img class="mw-100 mh-100" src="/img/apptype/ios.png" />
+                                        }
+                                    </div>
+                                    <div class="align-middle ms-3">
+                                        @Html.DisplayFor(modelItem => Model.AppName)
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="align-middle">@Html.DisplayFor(modelItem => Model.Platform)</td>
+                            <td class="align-middle">@Html.DisplayFor(modelItem => Model.PublishedStatus)</td>
+                            <td class="align-middle">@Html.DisplayFor(modelItem => Model.PublishedDate)</td>
+                            <td class="align-middle">@Html.DisplayFor(modelItem => Model.ModificationDate)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- END table -->
+            <div class="d-flex align-items-center">
+                <div class="ms-auto">
+                    <div class="ms-auto btn-group">
+                        <a asp-action="Index" class="btn btn-primary"><i class="fas fa-arrow-alt-circle-left"></i> Aplicativos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

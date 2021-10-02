@@ -1,0 +1,131 @@
+﻿@model AppViewModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+@section Styles {
+    <link href="~/lib/tag-it/css/jquery.tagit.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet" />
+    <link href="~/lib/blueimp-file-upload/css/jquery.fileupload.css" rel="stylesheet" />
+    <link href="~/lib/summernote/dist/summernote-lite.css" rel="stylesheet" />
+    <link href="~/lib/spectrum-colorpicker2/dist/spectrum.min.css" rel="stylesheet" />
+    <link href="~/lib/select-picker/dist/picker.min.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/lib/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/lib/moment/min/moment.min.js"></script>
+    <script src="~/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="~/lib/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="~/lib/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <script src="~/lib/bootstrap-3-typeahead/bootstrap3-typeahead.js"></script>
+    <script src="~/lib/jquery.maskedinput/src/jquery.maskedinput.js"></script>
+    <script src="~/lib/tag-it/js/tag-it.min.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+    <script src="~/lib/blueimp-tmpl/js/tmpl.min.js"></script>
+    <script src="~/lib/blueimp-load-image/js/load-image.all.min.js"></script>
+    <script src="~/lib/blueimp-canvas-to-blob/js/canvas-to-blob.min.js"></script>
+    <script src="~/lib/blueimp-gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-audio.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-video.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-ui.js"></script>
+    <script src="~/lib/summernote/dist/summernote-lite.min.js"></script>
+    <script src="~/lib/spectrum-colorpicker2/dist/spectrum.min.js"></script>
+    <script src="~/lib/select-picker/dist/picker.min.js"></script>
+    <script src="~/lib/highlight.js/highlight.min.js"></script>
+    <script src="~/js/demo/highlightjs.demo.js"></script>
+    <script src="~/js/demo/form-plugins.demo.js"></script>
+    <script src="~/js/demo/sidebar-scrollspy.demo.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#publishedDate').datepicker({
+                autoclose: true,
+                format: 'dd/mm/yyyy',
+                language: 'pt-BR'
+            });
+            $('#modificationDate').datepicker({
+                autoclose: true,
+                format: 'dd/mm/yyyy',
+                language: 'pt-BR'
+            });
+        });
+    </script>
+}
+
+<div class="container">
+    <!-- BEGIN row -->
+    <div class="row justify-content-center">
+        <!-- BEGIN col-10 -->
+        <div class="col-xl-10">
+            <!-- BEGIN row -->
+            <div class="row">
+                <!-- BEGIN col-9 -->
+                <div class="col-xl-9">
+                    <div class="card">
+                        <div class="tab-content p-4">
+                            <div class="tab-pane fade show active" id="allTab">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div>
+                                        <h1 class="page-header mb-0">Cadastrar um novo aplicativo</h1>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <form asp-action="Create">
+                                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                        <div class="form-group">
+                                            <label asp-for="AppName" class="control-label mb-2"></label>
+                                            <input asp-for="AppName" class="form-control mb-3" />
+                                            <span asp-validation-for="AppName" class="text-danger"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label mb-2">Sistema operacional</label>
+                                            <select class="form-control mb-3" id="platformInput" asp-for="Platform">
+                                                <option value=""></option>
+                                                <option value="Android">Android</option>
+                                                <option value="iOS">iOS</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <label class="form-check-label mb-3">
+                                                <input class="form-check-input" asp-for="PublishedStatus" /> @Html.DisplayNameFor(model => model.PublishedStatus)
+                                            </label>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <label class="input-group-text mb-3" for="publishedDate"><i class="fa fa-calendar"></i></label>
+                                                    <input type="text" asp-for="PublishedDate" class="form-control mb-3" id="publishedDate" placeholder="ex 30/07/1995"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="input-group">
+                                                    <label class="input-group-text mb-3" for="modificationDate"><i class="fa fa-calendar"></i></label>
+                                                    <input type="text" asp-for="ModificationDate" class="form-control mb-3" id="modificationDate" placeholder="ex 30/07/1995"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div><br /></div>
+                                        <div class="modal-footer">
+                                            <input type="submit" value="Create" class="btn btn-primary btn-block" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

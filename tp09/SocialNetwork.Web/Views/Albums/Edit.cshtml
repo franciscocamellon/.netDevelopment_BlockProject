@@ -1,7 +1,62 @@
 ﻿@model SocialNetwork.Domain.Entities.Album
+@using SocialNetwork.Domain.Entities
 
 @{
     ViewData["Title"] = "Edit";
+}
+
+@section Styles {
+    <link href="~/lib/tag-it/css/jquery.tagit.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-slider/dist/css/bootstrap-slider.min.css" rel="stylesheet" />
+    <link href="~/lib/blueimp-file-upload/css/jquery.fileupload.css" rel="stylesheet" />
+    <link href="~/lib/summernote/dist/summernote-lite.css" rel="stylesheet" />
+    <link href="~/lib/spectrum-colorpicker2/dist/spectrum.min.css" rel="stylesheet" />
+    <link href="~/lib/select-picker/dist/picker.min.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/lib/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="~/lib/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/lib/moment/min/moment.min.js"></script>
+    <script src="~/lib/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="~/lib/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <script src="~/lib/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <script src="~/lib/bootstrap-3-typeahead/bootstrap3-typeahead.js"></script>
+    <script src="~/lib/jquery.maskedinput/src/jquery.maskedinput.js"></script>
+    <script src="~/lib/tag-it/js/tag-it.min.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+    <script src="~/lib/blueimp-tmpl/js/tmpl.min.js"></script>
+    <script src="~/lib/blueimp-load-image/js/load-image.all.min.js"></script>
+    <script src="~/lib/blueimp-canvas-to-blob/js/canvas-to-blob.min.js"></script>
+    <script src="~/lib/blueimp-gallery/js/jquery.blueimp-gallery.min.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-audio.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-video.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-validate.js"></script>
+    <script src="~/lib/blueimp-file-upload/js/jquery.fileupload-ui.js"></script>
+    <script src="~/lib/summernote/dist/summernote-lite.min.js"></script>
+    <script src="~/lib/spectrum-colorpicker2/dist/spectrum.min.js"></script>
+    <script src="~/lib/select-picker/dist/picker.min.js"></script>
+    <script src="~/lib/highlight.js/highlight.min.js"></script>
+    <script src="~/js/demo/highlightjs.demo.js"></script>
+    <script src="~/js/demo/form-plugins.demo.js"></script>
+    <script src="~/js/demo/sidebar-scrollspy.demo.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#graduationDateInput').datepicker({
+                autoclose: true,
+                format: 'dd/mm/yyyy',
+                language: 'pt-BR'
+            });
+        });
+    </script>
 }
 
 <h1>Edit</h1>
@@ -42,3 +97,85 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<!-- BEGIN container -->
+<div class="container">
+    <!-- BEGIN row -->
+    <div class="row justify-content-center">
+        <!-- BEGIN col-10 -->
+        <div class="col-xl-10">
+            <!-- BEGIN row -->
+            <div class="row">
+
+                <!-- BEGIN col-9 -->
+                <div class="col-xl-9">
+
+                    <!-- BEGIN #mediaAndFiles -->
+                    <div id="jQueryFileUpload" class="mb-5">
+
+                        <h4><i class="far fa-images fa-fw"></i> Foto de Perfil</h4>
+                        <p>Atualize sua foto na rede social. Perfis com foto são mais visualizados!</p>
+
+
+                        <form id="fileupload" asp-action="" method="POST" enctype="multipart/form-data">
+                            <div class="card">
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="mb-3">
+                                                <div class="profile-header-content">
+                                                    <div class="profile-header-img">
+                                                        <img @*src="@(Model?.UriImageAlbum != null ? Model.UriImageAlbum : "/img/user/user.jpg")"*@ class="img-fluid img-thumbnail" style="width: 200px;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+                                        <div class="col-xl-6">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="defaultFile">Selecione uma imagem para o seu perfil:</label>
+                                                <input type="file" class="form-control" name="imageProfileFile" accept=".jpg,.png" required />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-6">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="defaultFile">&nbsp;</label></br>
+                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- END #mediaAndFiles -->
+
+
+                </div>
+                <!-- END col-9-->
+                <!-- BEGIN col-3 -->
+                <div class="col-xl-3">
+                    <!-- BEGIN #sidebar-bootstrap -->
+                    <nav id="sidebar-bootstrap" class="navbar navbar-sticky d-none d-xl-block">
+                        <nav class="nav text-nowrap">
+                            <a class="nav-link" href="#jQueryFileUpload" data-toggle="scroll-to">Foto de Perfil</a>
+                            <a class="nav-link" href="#dadosPerfil" data-toggle="scroll-to">Dados de Perfil</a>
+                        </nav>
+                    </nav>
+                    <!-- END #sidebar-bootstrap -->
+                </div>
+                <!-- END col-3 -->
+
+            </div>
+            <!-- END row -->
+        </div>
+        <!-- END col-10 -->
+    </div>
+    <!-- END row -->
+</div>
+<!-- END container -->

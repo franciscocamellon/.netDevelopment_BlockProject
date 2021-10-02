@@ -1,17 +1,6 @@
 ﻿@model SocialNetwork.Domain.Entities.Profile
-@using Microsoft.AspNetCore.Identity
-@using SocialNetwork.Domain.Entities
-@inject SignInManager<User> SignInManager
-@inject UserManager<User> _userManager;
-
 @{
     ViewData["Title"] = "Index";
-
-    System.Security.Claims.ClaimsPrincipal currentUser = this.User;
-    var userApp = await _userManager.GetUserAsync(currentUser);
-    var userName = userApp.UserName;
-    //var lastName = userApp.LastName;
-
 }
 
 

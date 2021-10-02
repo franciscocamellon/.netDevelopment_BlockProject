@@ -14,6 +14,7 @@ namespace SocialNetwork.Data
         public DbSet<Post> Posts { get; set; }
         public DbSet<Profile> Profiles { get; set; }        
         public DbSet<Album> Albums { get; set; }
+        public DbSet<Picture> Pictures { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
