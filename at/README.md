@@ -329,5 +329,7 @@ O modelo de desenvolvimento de software em cascata é mais antigo e estabelecido
     * aqui foram realizados o desenvolvimento de diagramas de classe e componentes a fim de aumentar o detalhamento e fazer um desenho inicial da solução. Foram feitos também bancos de dados com o objetivo de analisar o relacionamento entre entidades.
 * Implantação
     * foram implementados alguns dos requisitos de sistema desenvolvidos  
-* Considerações
-    * nem sempre garante uma produção simples devido ao fato de não admitir mudanças ao longo do projeto, sendo mais adequado para projetos com escopos e requisitos rigorosamente definidos. Mudanças de escopo são lentas e demandam um processo formal de gestão de mudanças.
+    
+* ## Considerações  
+
+    Nem sempre garante uma produção simples devido ao fato de não admitir mudanças ao longo do projeto, sendo mais adequado para projetos com escopos e requisitos rigorosamente definidos. Mudanças de escopo são lentas e demandam um processo formal de gestão de mudanças.
