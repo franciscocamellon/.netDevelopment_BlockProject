@@ -53,6 +53,7 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 ### [Relatório](https://github.com/franciscocamellon/.netDevelopment_BlockProject/blob/master/at/README.md#relat%C3%B3rio-1)
 * [Modelo de desenvolvimento em cascata](https://github.com/franciscocamellon/.netDevelopment_BlockProject/blob/master/at/README.md#modelo-de-desenvolvimento-em-cascata)
 * [Etapas do modelo em cascata](https://github.com/franciscocamellon/.netDevelopment_BlockProject/blob/master/at/README.md#etapas-do-modelo-em-cascata)
+* [Considerações](https://github.com/franciscocamellon/.netDevelopment_BlockProject/blob/master/at/README.md#etapas-do-modelo-em-cascata)
 
 <p><br></p>
 
@@ -327,4 +328,6 @@ O modelo de desenvolvimento de software em cascata é mais antigo e estabelecido
 * Análilse e projeto
     * aqui foram realizados o desenvolvimento de diagramas de classe e componentes a fim de aumentar o detalhamento e fazer um desenho inicial da solução. Foram feitos também bancos de dados com o objetivo de analisar o relacionamento entre entidades.
 * Implantação
-    * foram implementados alguns dos requisitos de sistema desenvolvidos
+    * foram implementados alguns dos requisitos de sistema desenvolvidos  
+* Considerações
+    * nem sempre garante uma produção simples devido ao fato de não admitir mudanças ao longo do projeto, sendo mais adequado para projetos com escopos e requisitos rigorosamente definidos. Mudanças de escopo são lentas e demandam um processo formal de gestão de mudanças.
