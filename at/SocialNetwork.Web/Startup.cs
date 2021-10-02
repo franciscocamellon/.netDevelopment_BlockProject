@@ -35,6 +35,8 @@ namespace SocialNetwork.Web
             }).AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddControllersWithViews();
+            services.AddRazorPages();
+
             services.AddAuthentication()
                 .AddGoogle(options =>
                 {
@@ -44,7 +46,7 @@ namespace SocialNetwork.Web
                     options.ClientId = googleAuthNSection["ClientId"];
                     options.ClientSecret = googleAuthNSection["ClientSecret"];
                 });
-            services.AddRazorPages();
+            
 
             var appsApiAddress = Configuration.GetValue<string>("ApiAddresses:Apps");
             var albumApiAddress = Configuration.GetValue<string>("ApiAddresses:Album");
@@ -80,7 +82,7 @@ namespace SocialNetwork.Web
                 endpoints.MapAreaControllerRoute(
                     name: "Identity",
                     areaName: "Identity",
-                    pattern: "Identity/{controller=Account}/{action=Login}");
+                    pattern: "Identity/{controller=Account}/{action=Index}");
 
                 endpoints.MapControllerRoute(
                     name: "default",
