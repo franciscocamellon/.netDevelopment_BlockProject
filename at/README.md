@@ -51,8 +51,8 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 * [Diagrama de Classe](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagrama-de-classe)
 * [Diagrama de Componente](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagrama-de-componente)
 ### [Relatório](https://github.com/franciscocamellon/.netDevelopment_BlockProject/blob/master/at/README.md#relat%C3%B3rio-1)
-* [Modelo de desenvolvimento em cascata](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagramas-uml-1)
-* [Etapas do modelo em cascata](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagramas-uml-1)
+* [Modelo de desenvolvimento em cascata](https://github.com/franciscocamellon/.netDevelopment_BlockProject/blob/master/at/README.md#modelo-de-desenvolvimento-em-cascata)
+* [Etapas do modelo em cascata](https://github.com/franciscocamellon/.netDevelopment_BlockProject/blob/master/at/README.md#etapas-do-modelo-em-cascata)
 
 <p><br></p>
 
