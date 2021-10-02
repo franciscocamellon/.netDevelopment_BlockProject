@@ -50,7 +50,8 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 ### [Diagramas UML](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagramas-uml-1)
 * [Diagrama de Classe](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagrama-de-classe)
 * [Diagrama de Componente](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagrama-de-componente)
-
+### [Relatório](https://github.com/franciscocamellon/.netDevelopment_BlockProject/tree/tp05/tp05#diagramas-uml-1)
+* [Modelo de desenvolvimento em cascata]
 
 <p><br></p>
 
@@ -302,4 +303,17 @@ CURSO DE ENGENHARIA DE SOFTWARES</h1>
 * ## Diagrama de Componente  
 ![Diagrama de componente UML](https://github.com/franciscocamellon/.netDevelopment_BlockProject/blob/tp05/tp05/Diagrama%20de%20sequ%C3%AAncia%20uml.svg)
 
-# Diagramas UML
+# Relatório
+
+* ## Modelo de desenvolvimento em cascata  
+
+O modelo de desenvolvimento de software em cascata é mais antigo e estabelecido do que as metodologias de desenvolvimento ágil. Em poucas palavras, ele envolve a criação de ferramentas a partir de etapas bem definidas, como:
+
+* análise;
+* projeto;
+* teste;
+* codificação;
+* implementação;
+* manutenção.
+
+É conhecido por ter uma estrutura mais engessada, com poucas aberturas para mudanças no meio do caminho.
